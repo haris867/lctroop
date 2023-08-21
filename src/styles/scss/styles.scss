@@ -1,0 +1,190 @@
+@import "~bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: "N27";
+  src: url("../fonts/n27-regular-webfont.woff") format("woff"),
+    url("../fonts/n27-regular-webfont.woff2") format("woff2"),
+    url("../fonts/n27-regular-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lao MN";
+  src: url("../fonts/lao-mn.ttf") format("truetype");
+}
+
+html,
+body,
+#root,
+.layout-container,
+.layout-outlet {
+  height: 100%;
+}
+
+html {
+  --color-primary: #131313;
+  --color-secondary: #f5f5f5;
+  --color-tertiary: #ffd700;
+}
+body {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+.logo-container img {
+  max-width: calc(49px + 3vw);
+  max-height: 100px;
+  margin: 0px 10px;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout-outlet {
+  flex: 1;
+}
+
+.canvas-wrapper {
+  height: 100% !important;
+  width: 100%;
+  max-height: calc(100vh - 240px) !important;
+}
+
+.canvas-wrapper canvas {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.glow {
+  color: #ffd700;
+  animation-name: glow;
+  animation-duration: 1.3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  font-size: 2rem;
+  font-family: "N27, sans serif";
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 13px #ffffff, 0 0 16px #ffffff, 0 0 19px #ffd700,
+      0 0 22px #ffd700, 0 0 25px #ffd700;
+  }
+
+  100% {
+    text-shadow: 0 0 1px #ffffff, 0 0 3px #ffffff, 0 0 6px #ffd700,
+      0 0 9px #ffd700, 0 0 12px #ffd700;
+  }
+}
+
+// NAV
+
+.hamburger-menu {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: var(--color-primary);
+  position: absolute;
+  bottom: 100vh;
+  transition: bottom 0.5s ease-in;
+  z-index: 2;
+  left: 0;
+}
+
+.hamburger-icon {
+  z-index: 23;
+}
+
+.zero-vh {
+  bottom: 0vh !important;
+}
+
+nav {
+  z-index: 23;
+  height: 100vh;
+}
+
+ul {
+  height: 60%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav ul li a {
+  color: var(--color-secondary);
+  font-family: "N27, sans-serif";
+  text-decoration: none;
+  font-size: 1.8em;
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+nav span {
+  display: none;
+}
+
+nav .active span {
+  display: unset;
+}
+
+.active {
+  font-weight: bold;
+}
+
+footer ul {
+  align-items: start;
+}
+
+footer ul li a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-family: "Lao MN, sans-serif";
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.heading-animation {
+  animation-name: heading;
+  animation-duration: 4s;
+  transition: ease-in;
+  animation-delay: 2s;
+  top: 174px;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes heading {
+  0% {
+    opacity: 0;
+    top: 174px;
+  }
+
+  100% {
+    opacity: 1 !important;
+    top: 130px;
+  }
+}
+
+.canvas-wrapper {
+  opacity: 0;
+  animation: fadeIn 1s forwards 2s;
+  animation-fill-mode: forwards; /* animation: [animation-name] [animation-duration] [animation-fill-mode] [animation-delay]; */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

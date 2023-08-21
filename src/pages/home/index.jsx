@@ -1,0 +1,123 @@
+import React, { useRef, useState, useEffect } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import * as THREE from "three";
+import * as S from "./index.styles";
+
+function RotatingSphere({ position = [0, 0, 0] }) {
+  const meshRef = useRef(null);
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x += 0.001;
+      meshRef.current.rotation.y += 0.001;
+    }
+  });
+  return (
+    <mesh ref={meshRef} position={position}>
+      <sphereGeometry args={[1, 64, 64]} />
+      <meshStandardMaterial
+        color={new THREE.Color("#ffd700")}
+        metalness={0.7}
+        roughness={0.1}
+      />
+    </mesh>
+  );
+}
+
+function Star() {
+  const meshRef = useRef(null);
+
+  const [x, y, z] = Array(3)
+    .fill()
+    .map(() => THREE.MathUtils.randFloatSpread(30));
+
+  // Step 1: Introduce a velocity factor for each star
+  const [velocityX, velocityY] = Array(2)
+    .fill()
+    .map(() => THREE.MathUtils.randFloatSpread(0.005));
+
+  useFrame(() => {
+    if (meshRef.current) {
+      // Step 2: Update the star's position based on its velocity
+      meshRef.current.position.x += velocityX;
+      meshRef.current.position.y += velocityY;
+
+      // Step 3: Wrap stars around if they move out of a certain boundary
+      if (meshRef.current.position.x > 50) meshRef.current.position.x = -50;
+      if (meshRef.current.position.x < -50) meshRef.current.position.x = 50;
+      if (meshRef.current.position.y > 50) meshRef.current.position.y = -50;
+      if (meshRef.current.position.y < -50) meshRef.current.position.y = 50;
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} position={[x, y, z]}>
+      {/* <pointLight intensity={1} /> */}
+      <sphereGeometry args={[0.03, 64, 64]} />
+      <meshBasicMaterial color={0xffd700} />
+    </mesh>
+  );
+}
+
+function Stars({ count = 100 }) {
+  return (
+    <>
+      {Array(count)
+        .fill(null)
+        .map((_, i) => (
+          <Star key={i} />
+        ))}
+    </>
+  );
+}
+
+function AnimatedLight() {
+  const lightRef = useRef();
+  const { mouse } = useThree();
+
+  useFrame(({ clock }) => {
+    if (lightRef.current) {
+      const time = clock.getElapsedTime();
+      const radius = 15; // The distance from the center
+
+      lightRef.current.position.x = radius * Math.cos(time);
+      lightRef.current.position.y = 15; // Keeping the Y position constant
+      lightRef.current.position.z = radius * Math.sin(time) - 23;
+    }
+  });
+
+  return (
+    <pointLight
+      ref={lightRef}
+      position={[15, 15, -25]}
+      intensity={2000}
+      distance={100}
+    />
+  );
+}
+
+function ThreeFiberScene() {
+  return (
+    <Canvas className="canvas-wrapper">
+      <perspectiveCamera aspect={1 / 4} fov={75} position={[0, 0, 25]} />
+      {/* <ambientLight intensity={1} /> */}
+      {/* <directionalLight position={[5, 5, -5]} intensity={1} /> */}
+      <AnimatedLight />
+      <Stars count={200} />
+      <RotatingSphere position={[0, 1.5, 0]} />
+    </Canvas>
+  );
+}
+
+export default function Home() {
+  return (
+    <div className="h-100">
+      <div className="d-flex justify-content-center">
+        <S.Heading className="heading-animation d-flex justify-content-center align-items-center position-absolute pt-3">
+          <span className="glow me-2">-</span>JOIN THE TROOP
+          <span className="glow ms-2">-</span>
+        </S.Heading>
+      </div>
+      <ThreeFiberScene />
+    </div>
+  );
+}
