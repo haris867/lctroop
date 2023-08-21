@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import React, { useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import * as S from "./index.styles";
 
@@ -72,7 +72,6 @@ function Stars({ count = 100 }) {
 
 function AnimatedLight() {
   const lightRef = useRef();
-  const { mouse } = useThree();
 
   useFrame(({ clock }) => {
     if (lightRef.current) {

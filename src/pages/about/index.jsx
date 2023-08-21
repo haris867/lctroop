@@ -1,6 +1,6 @@
 import * as St from "../../components/commonStyles/headings";
 import * as S from "./index.styles";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default function About() {
   return (
