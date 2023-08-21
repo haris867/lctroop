@@ -15,8 +15,7 @@
 html,
 body,
 #root,
-.layout-container,
-.layout-outlet {
+.layout-container {
   height: 100%;
 }
 
@@ -64,7 +63,7 @@ body {
   animation-direction: alternate;
   animation-iteration-count: infinite;
   font-size: 2rem;
-  font-family: "N27, sans serif";
+  text-decoration: none !important;
 }
 
 @keyframes glow {
@@ -118,7 +117,7 @@ ul {
 
 nav ul li a {
   color: var(--color-secondary);
-  font-family: "N27, sans-serif";
+  font-family: "N27", sans-serif;
   text-decoration: none;
   font-size: 1.8em;
   &:hover {
@@ -145,19 +144,15 @@ footer ul {
 footer ul li a {
   color: var(--color-secondary);
   text-decoration: none;
-  font-family: "Lao MN, sans-serif";
+  font-family: "N27", sans-serif;
   &:hover {
-    font-weight: bold;
+    text-decoration: underline;
   }
 }
 
 .heading-animation {
-  animation-name: heading;
-  animation-duration: 4s;
-  transition: ease-in;
-  animation-delay: 2s;
+  animation: heading 4s forwards 2s;
   top: 174px;
-  animation-fill-mode: forwards;
   opacity: 0;
 }
 
@@ -167,16 +162,20 @@ footer ul li a {
     top: 174px;
   }
 
+  40% {
+    opacity: 0;
+    top: 174px;
+  }
+
   100% {
-    opacity: 1 !important;
+    opacity: 1;
     top: 130px;
   }
 }
 
 .canvas-wrapper {
   opacity: 0;
-  animation: fadeIn 1s forwards 2s;
-  animation-fill-mode: forwards; /* animation: [animation-name] [animation-duration] [animation-fill-mode] [animation-delay]; */
+  animation: fadeIn 2s forwards 2s;
 }
 
 @keyframes fadeIn {
