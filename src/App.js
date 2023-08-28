@@ -1,4 +1,3 @@
-import "./App.css";
 import "./styles/scss/styles.scss";
 import { Routes, Route } from "react-router-dom";
 import { Home, About, Creators, Contact } from "./pages";

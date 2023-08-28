@@ -7,14 +7,14 @@ export const AboutImage = styled.img`
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
   width: 90%;
   object-fit: cover;
-  aspect-ratio: 3/2;
+  aspect-ratio: 3/1.85;
 `;
 
 export const AboutCardText = styled.p`
   font-size: calc(0.9rem + 0.3vw) !important;
-  width: 85%;
-  margin: 0 auto;
-  font-family: "Lao MN", sans-serif;
+  width: 90%;
+  margin: 10px auto;
+  font-family: "N27", sans-serif;
 `;
 export const AboutCardTitle = styled.h2`
   font-family: "Play", sans-serif;
