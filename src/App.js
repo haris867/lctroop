@@ -1,6 +1,6 @@
 import "./styles/scss/styles.scss";
 import { Routes, Route } from "react-router-dom";
-import { Home, About, Creators, Contact } from "./pages";
+import { Home, About, Creators, Contact, Join } from "./pages";
 import Layout from "./components/layout";
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
         {/* <Route path="/creator/:id" element={<Creator />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/join" element={<Join />} />
       </Route>
     </Routes>
   );

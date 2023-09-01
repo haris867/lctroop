@@ -2,6 +2,24 @@ import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import * as S from "./index.styles";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+const JoinButton = styled.button`
+  height: 38px;
+  width: calc(160px + 0.3vw);
+  max-width: 180px;
+  font-size: calc(1rem + 0.3vw) !important;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 3px solid #ffd700;
+  font-family: "N27", sans-serif;
+  transform: scale(1);
+  transition: transform 0.4s ease-in;
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
 
 function RotatingSphere({ position = [0, 0, 0] }) {
   const meshRef = useRef(null);
@@ -96,7 +114,7 @@ function AnimatedLight() {
 
 function ThreeFiberScene() {
   return (
-    <Canvas className="canvas-wrapper">
+    <Canvas className="canvas-wrapper fade-in">
       <perspectiveCamera aspect={1 / 4} fov={75} position={[0, 0, 25]} />
       {/* <ambientLight intensity={1} /> */}
       {/* <directionalLight position={[5, 5, -5]} intensity={1} /> */}
@@ -109,14 +127,20 @@ function ThreeFiberScene() {
 
 export default function Home() {
   return (
-    <div className="h-100">
-      <div className="d-flex justify-content-center">
-        <S.Heading className="heading-animation d-flex justify-content-center align-items-center position-absolute pt-3">
+    <div className="h-100 d-flex justify-content-center">
+      <div className="d-flex justify-content-center position-absolute">
+        <S.Heading className="heading-animation d-flex justify-content-center align-items-center position-relative">
           <span className="glow me-2">-</span>JOIN THE TROOP
           <span className="glow ms-2">-</span>
         </S.Heading>
       </div>
+
       <ThreeFiberScene />
+      <div className="position-absolute join-button d-flex justify-content-center fade-in-button">
+        <Link to="/join">
+          <JoinButton className="mt-3">JOIN US</JoinButton>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { CgMenuRightAlt, CgClose } from "react-icons/cg";
+import { BurgerSexy } from "react-burger-icons";
 
 import styled from "styled-components";
 
-export const MenuIcon = styled(CgMenuRightAlt)`
-  font-size: 2.5em;
+export const MenuButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+`;
+
+export const MenuIcon = styled(BurgerSexy)`
+  font-size: 3.5em;
   cursor: pointer;
   :hover {
     background: none !important;
@@ -16,7 +23,7 @@ export const MenuIcon = styled(CgMenuRightAlt)`
 `;
 
 export default function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
 
   function handleHamburger() {
     console.log("hamburger");
@@ -24,22 +31,24 @@ export default function Nav() {
     if (hamburgerMenu) {
       hamburgerMenu.classList.toggle("zero-vh");
     }
-    setIsOpen(!isOpen);
   }
   return (
     <>
       {/* <MenuIcon className="hamburger-icon" onClick={handleHamburger} /> */}
-
-      {isOpen ? (
-        <MenuIcon
-          as={CgClose}
-          className="hamburger-icon"
-          onClick={handleHamburger}
-        />
-      ) : (
-        <MenuIcon className="hamburger-icon" onClick={handleHamburger} />
-      )}
-
+      <MenuButton
+        onClick={() => {
+          setIsClosed(!isClosed);
+          handleHamburger();
+        }}
+        style={{
+          width: "50px",
+          height: "50px",
+          display: "grid",
+          placeItems: "center",
+        }}
+      >
+        <MenuIcon isClosed={isClosed} />
+      </MenuButton>
       <div className="hamburger-menu">
         <nav className="d-flex justify-content-center align-items-center">
           <ul>

@@ -1,5 +1,11 @@
 import Menu from "../../nav";
 import styled from "styled-components";
+import { GrLanguage } from "react-icons/gr";
+
+const LanguageIcon = styled(GrLanguage)`
+  font-size: 2.5em;
+  cursor: pointer;
+`;
 
 export const HeaderContainer = styled.header`
   min-height: 120px;
@@ -17,7 +23,10 @@ export default function Header() {
       <div className="logo-container">
         <img src="/images/logo.png" alt="LC Troop logo" />
       </div>
-      <Menu />
+      <div className="d-flex gap-3 align-items-center">
+        <LanguageIcon className="language-icon" />
+        <Menu />
+      </div>
     </HeaderContainer>
   );
 }
