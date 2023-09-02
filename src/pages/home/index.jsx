@@ -6,26 +6,24 @@ import * as S from "./index.styles";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const JoinButton = styled(Button)`
-  // height: 38px;
-  // width: calc(160px + 0.3vw);
-  // max-width: 180px;
-  padding: 3px 3rem;
+const JoinButton = styled.button`
   font-size: calc(1rem + 0.3vw) !important;
   border-radius: 5px;
   color: #131313;
-  background-color: #fff !important;
+  padding: 3px 3rem;
+  background-color: #fff;
   border: 3px solid #ffd700;
   font-family: "N27", sans-serif;
   transform: scale(1);
   transition: transform 0.4s ease-in;
   &:hover {
     transform: scale(1.05);
-    border: 3px solid #ffd700;
     color: #131313;
+    background-color: #fff !important;
+    border: 3px solid #ffd700 !important;
   }
   &:focus {
-    color: #131313 !important;
+    color: #131313;
     background-color: #fff !important;
     border: 3px solid #ffd700 !important;
   }

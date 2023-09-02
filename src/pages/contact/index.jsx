@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import * as S from "../../components/commonStyles/headings";
 import styled from "styled-components";
 import Envelope from "../../components/envelope";
@@ -36,27 +36,25 @@ const MessageInput = styled.textarea`
     outline: 2px solid #ffd700;
   }
 `;
-const ContactButton = styled(Button)`
-  // height: 38px;
-  // width: calc(160px + 0.3vw);
-  // max-width: 180px;
-  padding: 3px 3rem;
+
+const ContactButton = styled.button`
   font-size: calc(1rem + 0.3vw) !important;
   border-radius: 5px;
   color: #131313;
-  background-color: #fff !important;
+  padding: 3px 3rem;
+  background-color: #fff;
   border: 3px solid #ffd700;
   font-family: "N27", sans-serif;
   transform: scale(1);
   transition: transform 0.4s ease-in;
   &:hover {
     transform: scale(1.05);
-    border: 3px solid #ffd700;
     color: #131313;
     background-color: #fff !important;
+    border: 3px solid #ffd700 !important;
   }
   &:focus {
-    color: #131313 !important;
+    color: #131313;
     background-color: #fff !important;
     border: 3px solid #ffd700 !important;
   }
