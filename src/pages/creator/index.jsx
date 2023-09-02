@@ -74,7 +74,9 @@ export default function Creator() {
         >
           <Row className="justify-content-center">
             <Col xs={12} xl={8} xxl={6}>
-              <CardImage src={data.imageUrl} alt={`Image of ${data.name}`} />
+              {data.image && (
+                <CardImage src={data.imageUrl} alt={`Image of ${data.name}`} />
+              )}
               <div className="d-flex justify-content-center">
                 <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
                   <span className="glow me-2">-</span>
@@ -89,66 +91,72 @@ export default function Creator() {
               </div>
             </Col>
             <Col xs={12} xl={8} xxl={6}>
-              <CardDetails>
-                <CardDetailsTextContainer className="fs-5 p-3">
-                  <p>{data.bio1}</p>
-                  <p>{data.bio2}</p>
-                  <p>{data.bio3}</p>
-                </CardDetailsTextContainer>
-              </CardDetails>
+              {data.bio1 && (
+                <CardDetails>
+                  <CardDetailsTextContainer className="fs-5 p-3">
+                    <p>{data.bio1}</p>
+                    <p>{data.bio2}</p>
+                    <p>{data.bio3}</p>
+                  </CardDetailsTextContainer>
+                </CardDetails>
+              )}
             </Col>
           </Row>
-          <IconsContainer className="mt-5">
-            {data.social.instagram && (
-              <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                <IconLink href={`${data.social.instagram}`} target="_blank">
-                  <FaInstagram className="w-100 h-100 px-3 py-3 scale-up" />
-                </IconLink>
-              </Col>
-            )}
-            {data.social.facebook && (
-              <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                <IconLink href={`${data.social.facebook}`} target="_blank">
-                  <FaFacebook className="w-100 h-100 px-3 py-3 scale-up" />
-                </IconLink>
-              </Col>
-            )}
-            {data.social.tiktok && (
-              <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                <IconLink href={`${data.social.tiktok}`} target="_blank">
-                  <FaTiktok className="w-100 h-100 px-3 py-3 scale-up" />
-                </IconLink>
-              </Col>
-            )}
-            {data.social.youtube && (
-              <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                <IconLink href={`${data.social.youtube}`} target="_blank">
-                  <FaYoutube className="w-100 h-100 px-3 py-3 scale-up" />
-                </IconLink>
-              </Col>
-            )}
-            {data.social.spotify && (
-              <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                <IconLink href={`${data.social.spotify}`} target="_blank">
-                  <FaSpotify className="w-100 h-100 px-3 py-3 scale-up" />
-                </IconLink>
-              </Col>
-            )}
-            {data.social.appleMusic && (
-              <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                <IconLink href={`${data.social.appleMusic}`} target="_blank">
-                  <SiApplemusic className="w-100 h-100 px-3 py-3 scale-up" />
-                </IconLink>
-              </Col>
-            )}
-            {data.social.soundcloud && (
-              <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                <IconLink href={`${data.social.soundcloud}`} target="_blank">
-                  <FaSoundcloud className="w-100 h-100 px-3 py-3 scale-up" />
-                </IconLink>
-              </Col>
-            )}
-            {/* {data.social.twitter && (
+          {data.social && Object.keys(data.social).length > 0 && (
+            <IconsContainer className="mt-5">
+              {data.social.instagram && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.instagram}`} target="_blank">
+                    <FaInstagram className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.facebook && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.facebook}`} target="_blank">
+                    <FaFacebook className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.tiktok && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.tiktok}`} target="_blank">
+                    <FaTiktok className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.youtube && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.youtube}`} target="_blank">
+                    <FaYoutube className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.spotify && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.spotify}`} target="_blank">
+                    <FaSpotify className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.appleMusic && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.appleMusic}`} target="_blank">
+                    <SiApplemusic className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.soundcloud && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.soundcloud}`} target="_blank">
+                    <FaSoundcloud className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+            </IconsContainer>
+          )}
+
+          {/* {data.social.twitter && (
               <Col xs={4} sm={3} md={3} lg={3}>
                 <IconLink href={`${data.social.twitter}`} target="_blank">
                   <img
@@ -159,7 +167,6 @@ export default function Creator() {
                 </IconLink>
               </Col>
             )} */}
-          </IconsContainer>
         </Col>
       </Container>
     );
