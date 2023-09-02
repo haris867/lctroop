@@ -56,7 +56,9 @@ export default function Join() {
 
   const { sendData, isLoading, isError } = useSendData();
 
-  const [joinFormMessage, setJoinFormMessage] = useState("");
+  const [joinFormMessage, setJoinFormMessage] = useState(
+    "GET ALL THE LATEST NEWS"
+  );
 
   async function onJoinSubmit(contact) {
     const url =
@@ -81,7 +83,7 @@ export default function Join() {
       setJoinFormMessage(`${result.error}: ${result.message}`);
     } else if (result) {
       reset();
-      setJoinFormMessage("We'll keep you up to date!");
+      setJoinFormMessage("WE'LL KEEP YOU UP TO DATE");
     }
   }
 
@@ -114,11 +116,10 @@ export default function Join() {
       </div>
       <div className="d-flex justify-content-center">
         <S.SubHeading className="d-flex justify-content-center align-items-center pt-3">
-          GET ALL THE LATEST NEWS
+          {joinFormMessage}
         </S.SubHeading>
       </div>
       <Container className="mt-3">
-        <div className="fs-6 fw-bold text-center">{joinFormMessage}</div>
         <form onSubmit={handleSubmit(onJoinSubmit)}>
           <InputContainer className="d-flex flex-column mx-auto my-2">
             <ContactLabel className="my-1" htmlFor="name">

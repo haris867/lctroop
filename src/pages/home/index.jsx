@@ -4,6 +4,7 @@ import * as THREE from "three";
 import * as S from "./index.styles";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { SubHeading } from "../../components/commonStyles/headings";
 
 const JoinButton = styled.button`
   font-size: calc(1rem + 0.3vw) !important;
@@ -143,8 +144,13 @@ export default function Home() {
       </div>
 
       <ThreeFiberScene />
-      <div className="position-absolute join-button d-flex justify-content-center fade-in-button">
-        <Link to="/join">
+      <div className="position-absolute join-button d-flex justify-content-center flex-column fade-in-button">
+        <div>
+          <SubHeading className="d-flex justify-content-center align-items-center pt-3">
+            WANT US TO KEEP YOU IN THE LOOP?
+          </SubHeading>
+        </div>
+        <Link to="/join" className="d-flex justify-content-center">
           <JoinButton className="mt-3">JOIN US</JoinButton>
         </Link>
       </div>

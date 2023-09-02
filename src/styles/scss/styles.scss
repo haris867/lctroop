@@ -152,7 +152,7 @@ footer ul li a {
   text-decoration: none;
   font-family: "N27", sans-serif;
   &:hover {
-    text-decoration: underline;
+    text-decoration: underline !important;
   }
 }
 
