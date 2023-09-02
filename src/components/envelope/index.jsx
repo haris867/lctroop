@@ -101,7 +101,7 @@ export default function Envelope() {
           maxPolarAngle={Math.PI / 2 + 0.3}
           minAzimuthAngle={-Math.PI / 4}
           maxAzimuthAngle={Math.PI / 4}
-          rotateSpeed={0.4}
+          rotateSpeed={0.1}
         />
       </Canvas>
     </Suspense>

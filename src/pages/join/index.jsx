@@ -2,6 +2,10 @@ import { Container } from "react-bootstrap";
 import * as S from "../../components/commonStyles/headings";
 import styled from "styled-components";
 import Speaker from "../../components/speaker";
+import { useForm } from "react-hook-form";
+import { useState, useEffect } from "react";
+import useSendData from "../../hooks/api/sendData";
+import { ChaoticOrbit } from "@uiball/loaders";
 
 const InputContainer = styled.div`
   font-family: "N27", sans-serif;
@@ -41,6 +45,54 @@ const JoinButton = styled.button`
 `;
 
 export default function Join() {
+  const { register, handleSubmit, reset } = useForm();
+
+  const { sendData, isLoading, isError } = useSendData();
+
+  const [joinFormMessage, setJoinFormMessage] = useState("");
+
+  async function onJoinSubmit(contact) {
+    const url =
+      "https://ft6jmh4l.api.sanity.io/v2021-10-21/data/mutate/production";
+    const method = "POST";
+    const data = {
+      mutations: [
+        {
+          create: {
+            _type: "members",
+            name: contact.name,
+            email: contact.email,
+            phone: contact.phone,
+          },
+        },
+      ],
+    };
+
+    const result = await sendData(data, url, method);
+
+    if (result.error && result.error.length > 0) {
+      setJoinFormMessage(`${result.error}: ${result.message}`);
+    } else if (result) {
+      reset();
+      setJoinFormMessage("We'll keep you up to date!");
+    }
+  }
+
+  useEffect(() => {
+    if (isLoading) {
+      setJoinFormMessage("Submitting form...");
+    } else if (isError) {
+      setJoinFormMessage("Something went wrong. Please try again later.");
+    }
+  }, [isLoading, isError]);
+
+  if (isLoading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center w-100 h-100">
+        <ChaoticOrbit color="#ffd700" size={100} />
+      </div>
+    );
+  }
   return (
     <div>
       <div className="d-flex justify-content-center">
@@ -59,45 +111,56 @@ export default function Join() {
         </S.SubHeading>
       </div>
       <Container className="mt-3">
-        <InputContainer className="d-flex flex-column mx-auto my-2">
-          <ContactLabel className="my-1" htmlFor="name">
-            NAME
-          </ContactLabel>
-          <ContactInput
-            className="ps-2"
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your name"
-          />
-        </InputContainer>
-        <InputContainer className="d-flex flex-column mx-auto my-2">
-          <ContactLabel className="my-1" htmlFor="email">
-            EMAIL
-          </ContactLabel>
-          <ContactInput
-            className="ps-2"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your email address"
-          />
-        </InputContainer>
-        <InputContainer className="d-flex flex-column mx-auto my-2">
-          <ContactLabel className="my-1" htmlFor="phone">
-            PHONE
-          </ContactLabel>
-          <ContactInput
-            className="ps-2"
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Your phone number"
-          />
-        </InputContainer>
-        <div className="d-flex justify-content-center mt-4">
-          <JoinButton>SUBSCRIBE</JoinButton>
-        </div>
+        <div className="fs-6 fw-bold text-center">{joinFormMessage}</div>
+        <form onSubmit={handleSubmit(onJoinSubmit)}>
+          <InputContainer className="d-flex flex-column mx-auto my-2">
+            <ContactLabel className="my-1" htmlFor="name">
+              NAME
+            </ContactLabel>
+            <ContactInput
+              className="ps-2"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              required={true}
+              {...register("name")}
+              minLength={5}
+            />
+          </InputContainer>
+          <InputContainer className="d-flex flex-column mx-auto my-2">
+            <ContactLabel className="my-1" htmlFor="email">
+              EMAIL
+            </ContactLabel>
+            <ContactInput
+              className="ps-2"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your email address"
+              required={true}
+              {...register("email")}
+            />
+          </InputContainer>
+          <InputContainer className="d-flex flex-column mx-auto my-2">
+            <ContactLabel className="my-1" htmlFor="phone">
+              PHONE
+            </ContactLabel>
+            <ContactInput
+              className="ps-2"
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Your phone number"
+              required={true}
+              {...register("phone")}
+              minLength="8"
+            />
+          </InputContainer>
+          <div className="d-flex justify-content-center mt-4">
+            <JoinButton type="submit">SUBSCRIBE</JoinButton>
+          </div>
+        </form>
       </Container>
     </div>
   );

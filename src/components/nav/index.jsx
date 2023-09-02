@@ -53,28 +53,52 @@ export default function Nav() {
         <nav className="d-flex justify-content-center align-items-center">
           <ul>
             <li>
-              <NavLink onClick={handleHamburger} to="/">
+              <NavLink
+                onClick={() => {
+                  setIsClosed(!isClosed);
+                  handleHamburger();
+                }}
+                to="/"
+              >
                 <span className="glow me-2">-</span>
                 HOME
                 <span className="glow ms-2">-</span>
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={handleHamburger} to="/creators">
+              <NavLink
+                onClick={() => {
+                  setIsClosed(!isClosed);
+                  handleHamburger();
+                }}
+                to="/creators"
+              >
                 <span className="glow me-2">-</span>
                 CREATORS
                 <span className="glow ms-2">-</span>
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={handleHamburger} to="/about">
+              <NavLink
+                onClick={() => {
+                  setIsClosed(!isClosed);
+                  handleHamburger();
+                }}
+                to="/about"
+              >
                 <span className="glow me-2">-</span>
                 ABOUT
                 <span className="glow ms-2">-</span>
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={handleHamburger} to="/contact">
+              <NavLink
+                onClick={() => {
+                  setIsClosed(!isClosed);
+                  handleHamburger();
+                }}
+                to="/contact"
+              >
                 <span className="glow me-2">-</span>
                 CONTACT
                 <span className="glow ms-2">-</span>

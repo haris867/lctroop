@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AboutImage = styled.img`
-  border-radius: 0 !important;
+  border-radius: 5px !important;
   margin-bottom: 20px;
   filter: brightness(0.4);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;

@@ -1,23 +1,44 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { Button } from "react-bootstrap";
 import * as THREE from "three";
 import * as S from "./index.styles";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const JoinButton = styled.button`
-  height: 38px;
-  width: calc(160px + 0.3vw);
-  max-width: 180px;
+// const JoinButton = styled.button`
+//   height: 38px;
+//   width: calc(160px + 0.3vw);
+//   max-width: 180px;
+//   font-size: calc(1rem + 0.3vw) !important;
+//   border-radius: 5px;
+//   background-color: #fff;
+//   border: 3px solid #ffd700;
+//   font-family: "N27", sans-serif;
+//   transform: scale(1);
+//   transition: transform 0.4s ease-in;
+//   &:hover {
+//     transform: scale(1.05);
+//   }
+// `;
+
+const JoinButton = styled(Button)`
+  // height: 38px;
+  // width: calc(160px + 0.3vw);
+  // max-width: 180px;
+  padding: 3px 3rem;
   font-size: calc(1rem + 0.3vw) !important;
   border-radius: 5px;
-  background-color: #fff;
+  color: #131313;
+  background-color: #fff !important;
   border: 3px solid #ffd700;
   font-family: "N27", sans-serif;
   transform: scale(1);
   transition: transform 0.4s ease-in;
   &:hover {
     transform: scale(1.05);
+    border: 3px solid #ffd700;
+    color: #131313;
   }
 `;
 

@@ -121,11 +121,11 @@ export default function Speaker() {
           enablePan={false}
           enableRotate={true}
           enableZoom={false}
-          //   minPolarAngle={Math.PI / 2 - 0.3}
-          //   maxPolarAngle={Math.PI / 2 + 0.3}
-          //   minAzimuthAngle={-Math.PI / 4}
-          //   maxAzimuthAngle={Math.PI / 4}
-          rotateSpeed={0.4}
+          minPolarAngle={Math.PI / 2 - 0.3}
+          maxPolarAngle={Math.PI / 2 + 0.3}
+          minAzimuthAngle={-Math.PI / 4}
+          maxAzimuthAngle={Math.PI / 4}
+          rotateSpeed={0.1}
         />
       </Canvas>
     </Suspense>
