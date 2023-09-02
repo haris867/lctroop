@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Button } from "react-bootstrap";
 import * as THREE from "three";
 import * as S from "./index.styles";
 import styled from "styled-components";
