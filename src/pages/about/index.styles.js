@@ -21,4 +21,5 @@ export const AboutCardTitle = styled.h2`
   z-index: 1;
   font-size: calc(1.7rem + 1.2vw) !important;
   text-align: center;
+  font-family: "N27", sans-serif;
 `;
