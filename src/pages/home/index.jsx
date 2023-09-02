@@ -146,7 +146,7 @@ export default function Home() {
       <ThreeFiberScene />
       <div className="position-absolute join-button d-flex justify-content-center flex-column fade-in-button">
         <div>
-          <SubHeading className="d-flex justify-content-center align-items-center pt-3">
+          <SubHeading className="d-flex justify-content-center align-items-center pt-3 fs-5">
             WANT US TO KEEP YOU IN THE LOOP?
           </SubHeading>
         </div>
