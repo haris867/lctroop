@@ -53,6 +53,12 @@ const ContactButton = styled(Button)`
     transform: scale(1.05);
     border: 3px solid #ffd700;
     color: #131313;
+    background-color: #fff !important;
+  }
+  &:focus {
+    color: #131313 !important;
+    background-color: #fff !important;
+    border: 3px solid #ffd700 !important;
   }
 `;
 
@@ -72,7 +78,7 @@ export default function Contact() {
     window.location.href = mailtoLink;
   };
   return (
-    <div>
+    <div className="fade-in">
       <div className="d-flex justify-content-center mb-3">
         <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
           <span className="glow me-2">-</span>CONTACT US

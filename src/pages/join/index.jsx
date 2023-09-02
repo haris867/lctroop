@@ -29,11 +29,10 @@ const ContactInput = styled.input`
 `;
 
 const JoinButton = styled.button`
-  height: 38px;
-  width: calc(160px + 0.5vw);
-  max-width: 180px;
   font-size: calc(1rem + 0.3vw) !important;
   border-radius: 5px;
+  color: #131313;
+  padding: 3px 3rem;
   background-color: #fff;
   border: 3px solid #ffd700;
   font-family: "N27", sans-serif;
@@ -41,6 +40,14 @@ const JoinButton = styled.button`
   transition: transform 0.4s ease-in;
   &:hover {
     transform: scale(1.05);
+    color: #131313;
+    background-color: #fff !important;
+    border: 3px solid #ffd700 !important;
+  }
+  &:focus {
+    color: #131313;
+    background-color: #fff !important;
+    border: 3px solid #ffd700 !important;
   }
 `;
 
@@ -94,7 +101,7 @@ export default function Join() {
     );
   }
   return (
-    <div>
+    <div className="fade-in">
       <div className="d-flex justify-content-center">
         <S.Heading className="d-flex justify-content-center align-items-center pt-3">
           <span className="glow me-2">-</span>JOIN US

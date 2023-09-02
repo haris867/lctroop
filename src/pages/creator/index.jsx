@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import * as S from "../../components/commonStyles/headings";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import { ChaoticOrbit } from "@uiball/loaders";
 import {
   FaInstagram,
   FaSpotify,
@@ -21,12 +22,12 @@ const CardImage = styled.img`
   border-radius: 5px;
 `;
 
-const CardDetails = styled.div`
+export const CardDetails = styled.div`
   color: #131313;
   background-color: #fff;
   border-radius: 5px;
 `;
-const CardDetailsTextContainer = styled.div`
+export const CardDetailsTextContainer = styled.div`
   background-color: rgba(255, 215, 0, 0.5);
   font-family: "N27", sans-serif;
 `;
@@ -41,38 +42,28 @@ const IconLink = styled.a`
   color: #fff;
 `;
 
-const CreatorObject = {
-  name: "Young Cisto",
-  occupation: "Rapper",
-  image: "/images/artist.png",
-  id: "01",
-  bio1: "Young Cisto, the Oslo-based rapper, has been redefining the Scandinavian hip-hop scene by seamlessly weaving together Afro beats and jazz undertones, creating a unique blend that both energizes and mesmerizes his audience.",
-  bio2: "Cisto's music is a direct reflection of his diverse upbringing. Each track feels like an exploration, a sonic journey guided by intricate saxophone solos or drum rhythms inspired by African percussion instruments.",
-  bio3: "His live performances are a spectacle. With several critically acclaimed mixtapes, and a debut album in the works, Young Cisto is set to make his mark not just in Norway but globally.",
-  social: {
-    instagram: "https://instagram.com",
-    tiktok: "https://tiktok.com",
-    youtube: "https://youtube.com",
-    spotify: "https://open.spotify.com/artist/71JrEJeFYDu3IM47yD7XDy",
-    facebook: "https://facebook.com",
-    soundcloud: "https://soundcloud.com",
-    appleMusic: "",
-  },
-};
-
-console.log(CreatorObject.social.instagram);
-
 export default function Creator() {
   let { id } = useParams();
   const singleCreatorUrl = `https://ft6jmh4l.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22creators%22+%26%26+_id+%3D%3D+%22${id}%22%5D%7B%0A++name%2C%0A++occupation%2C%0A++image%2C%0A++%22imageUrl%22%3A+image.asset-%3Eurl%2C%0A++bio1%2C%0A++bio2%2C%0A++bio3%2C%0A++social%0A%7D%5B0%5D`;
   const { data, isFetchLoading, isFetchError } = useGetData(singleCreatorUrl);
-
-  console.log(data.name);
-  if (isFetchLoading) return <div>Loading...</div>;
-  if (isFetchError || !data) return <div>Error loading data.</div>;
+  if (isFetchLoading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center w-100 h-100">
+        <ChaoticOrbit color="#ffd700" size={100} />
+      </div>
+    );
+  }
+  if (isFetchError || !data)
+    return (
+      <div className="d-flex justify-content-center align-items-center w-100 h-100">
+        <h2 className="poppins">
+          Something went wrong. Please try again later.
+        </h2>
+      </div>
+    );
   if (data && data.name) {
     return (
-      <Container className="mt-4">
+      <Container className="mt-4 fade-in">
         <Col
           xs={9}
           sm={9}

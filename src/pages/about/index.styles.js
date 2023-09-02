@@ -11,9 +11,7 @@ export const AboutImage = styled.img`
 `;
 
 export const AboutCardText = styled.p`
-  font-size: calc(0.9rem + 0.3vw) !important;
   width: 90%;
-  margin: 10px auto;
   font-family: "N27", sans-serif;
 `;
 export const AboutCardTitle = styled.h2`

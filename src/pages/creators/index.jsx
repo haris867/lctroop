@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import useGetData from "../../hooks/api/getData";
 import { fetchUrl } from "../../utils/constants";
+import { ChaoticOrbit } from "@uiball/loaders";
 
 const CreatorsSection = styled(Row)`
   gap: 10px;
@@ -50,17 +51,20 @@ const SectionHeading = styled.h2`
 export default function Creators() {
   const { data, isFetchLoading, isFetchError } = useGetData(fetchUrl);
 
-  if (isFetchLoading) return <div>Loading...</div>;
+  if (isFetchLoading || !data.categories || !data.creators) {
+    return (
+      <div className="d-flex justify-content-center align-items-center w-100 h-100">
+        <ChaoticOrbit color="#ffd700" size={100} />
+      </div>
+    );
+  }
   if (isFetchError || !data) return <div>Error loading data.</div>;
-  if (!data.categories || !data.creators)
-    return <div>Categories or creators are missing in data.</div>;
-
   const { categories, creators } = data;
   console.log(data);
   console.log(creators);
   console.log(categories);
   return (
-    <Container>
+    <Container className="fade-in">
       <div className="d-flex justify-content-center">
         <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
           <span className="glow me-2">-</span>OUR CREATORS
