@@ -3,7 +3,7 @@ import * as S from "../../components/commonStyles/headings";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import useGetData from "../../hooks/api/getData";
-import { fetchUrl, fetchUrlNews } from "../../utils/constants";
+import { fetchUrlNews } from "../../utils/constants";
 import { ChaoticOrbit } from "@uiball/loaders";
 
 const NewsContainer = styled(Row)`
