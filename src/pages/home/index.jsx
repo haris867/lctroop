@@ -5,29 +5,9 @@ import * as S from "./index.styles";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { SubHeading } from "../../components/commonStyles/headings";
-
-const JoinButton = styled.button`
-  font-size: calc(1rem + 0.3vw) !important;
-  border-radius: 5px;
-  color: #131313;
-  padding: 3px 3rem;
-  background-color: #fff;
-  border: 3px solid #ffd700;
-  font-family: "N27", sans-serif;
-  transform: scale(1);
-  transition: transform 0.4s ease-in;
-  &:hover {
-    transform: scale(1.05);
-    color: #131313;
-    background-color: #fff !important;
-    border: 3px solid #ffd700 !important;
-  }
-  &:focus {
-    color: #131313;
-    background-color: #fff !important;
-    border: 3px solid #ffd700 !important;
-  }
-`;
+import NewsSlider from "../../components/newsSlider";
+import { Row, Col } from "react-bootstrap";
+import Speaker from "../../components/speaker";
 
 function RotatingSphere({ position = [0, 0, 0] }) {
   const meshRef = useRef(null);
@@ -54,30 +34,31 @@ function Star() {
 
   const [x, y, z] = Array(3)
     .fill()
-    .map(() => THREE.MathUtils.randFloatSpread(30));
+    .map(() => THREE.MathUtils.randFloatSpread(25));
 
-  // Step 1: Introduce a velocity factor for each star
   const [velocityX, velocityY] = Array(2)
     .fill()
     .map(() => THREE.MathUtils.randFloatSpread(0.005));
+  let directionX = 1;
+  let directionY = 1;
 
   useFrame(() => {
     if (meshRef.current) {
-      // Step 2: Update the star's position based on its velocity
-      meshRef.current.position.x += velocityX;
-      meshRef.current.position.y += velocityY;
+      meshRef.current.position.x += velocityX * directionX;
+      meshRef.current.position.y += velocityY * directionY;
 
-      // Step 3: Wrap stars around if they move out of a certain boundary
-      if (meshRef.current.position.x > 50) meshRef.current.position.x = -50;
-      if (meshRef.current.position.x < -50) meshRef.current.position.x = 50;
-      if (meshRef.current.position.y > 50) meshRef.current.position.y = -50;
-      if (meshRef.current.position.y < -50) meshRef.current.position.y = 50;
+      if (meshRef.current.position.x > 5 || meshRef.current.position.x < -5) {
+        directionX = -directionX;
+      }
+
+      if (meshRef.current.position.y > 5 || meshRef.current.position.y < -5) {
+        directionY = -directionY;
+      }
     }
   });
 
   return (
     <mesh ref={meshRef} position={[x, y, z]}>
-      {/* <pointLight intensity={1} /> */}
       <sphereGeometry args={[0.03, 64, 64]} />
       <meshBasicMaterial color={0xffd700} />
     </mesh>
@@ -124,8 +105,6 @@ function ThreeFiberScene() {
   return (
     <Canvas className="canvas-wrapper fade-in">
       <perspectiveCamera aspect={1 / 4} fov={75} position={[0, 0, 25]} />
-      {/* <ambientLight intensity={1} /> */}
-      {/* <directionalLight position={[5, 5, -5]} intensity={1} /> */}
       <AnimatedLight />
       <Stars count={200} />
       <RotatingSphere position={[0, 1.5, 0]} />
@@ -135,25 +114,64 @@ function ThreeFiberScene() {
 
 export default function Home() {
   return (
-    <div className="h-100 d-flex justify-content-center">
-      <div className="d-flex justify-content-center position-absolute">
-        <S.Heading className="heading-animation d-flex justify-content-center align-items-center position-relative">
-          <span className="glow me-2">-</span>JOIN THE TROOP
-          <span className="glow ms-2">-</span>
-        </S.Heading>
+    <div className="h-100 d-flex justify-content-center flex-column">
+      <div className="w-100 d-flex justify-content-center">
+        <div className="text-center mx-auto mt-3 w-75 position-absolute heading-animation">
+          <S.Heading className="d-flex justify-content-center align-items-center">
+            <span className="glow me-2">-</span>REWRITING THE RULES OF
+            ENTERTAINMENT
+            <span className="glow ms-2">-</span>
+          </S.Heading>
+        </div>
       </div>
 
+      {/* <div className="d-flex justify-content-center position-absolute w-75 text-center">
+        <S.Heading className="subheading-animation d-flex justify-content-center align-items-center position-relative fs-4">
+          ONE STAR AT A TIME
+        </S.Heading>
+      </div> */}
       <ThreeFiberScene />
-      <div className="position-absolute join-button d-flex justify-content-center flex-column fade-in-button">
+      <Row className="home-content w-100 m-0">
+        <NewsSlider />
+        <Col
+          xs={12}
+          xl={6}
+          className="d-flex justify-content-center align-items-center p-0 mt-3"
+        >
+          <div className="d-flex flex-column justify-content-center">
+            <div className="d-flex justify-content-center">
+              <S.Heading className="d-flex justify-content-center align-items-center position-relative">
+                <span className="glow me-2">-</span>JOIN THE TROOP
+                <span className="glow ms-2">-</span>
+              </S.Heading>
+            </div>
+
+            <Speaker />
+            <div className="d-flex justify-content-center">
+              <SubHeading className="pt-3 fs-5">
+                WANT US TO KEEP YOU IN THE LOOP?
+              </SubHeading>
+            </div>
+            <Link
+              to="/join"
+              className="d-flex justify-content-center flex-column text-decoration-none"
+            >
+              <S.JoinButton className="mt-3">JOIN US</S.JoinButton>
+            </Link>
+          </div>
+        </Col>
+      </Row>
+
+      {/* <div className="position-absolute join-button d-flex justify-content-center flex-column fade-in-button">
         <div>
           <SubHeading className="d-flex justify-content-center align-items-center pt-3 fs-5">
             WANT US TO KEEP YOU IN THE LOOP?
           </SubHeading>
         </div>
         <Link to="/join" className="d-flex justify-content-center">
-          <JoinButton className="mt-3">JOIN US</JoinButton>
+          <S.JoinButton className="mt-3">JOIN US</S.JoinButton>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

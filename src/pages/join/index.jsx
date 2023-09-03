@@ -105,7 +105,7 @@ export default function Join() {
   return (
     <div className="fade-in">
       <div className="d-flex justify-content-center">
-        <S.Heading className="d-flex justify-content-center align-items-center pt-3">
+        <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
           <span className="glow me-2">-</span>JOIN US
           <span className="glow ms-2">-</span>
         </S.Heading>

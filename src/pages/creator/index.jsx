@@ -29,7 +29,9 @@ export const CardDetails = styled.div`
 `;
 export const CardDetailsTextContainer = styled.div`
   background-color: rgba(255, 215, 0, 0.5);
+  border-radius: 5px;
   font-family: "N27", sans-serif;
+  font-size: calc(1rem + 0.2vw) !important;
 `;
 
 const SectionHeading = styled.h2`
@@ -93,7 +95,7 @@ export default function Creator() {
             <Col xs={12} xl={8} xxl={6}>
               {data.bio1 && (
                 <CardDetails>
-                  <CardDetailsTextContainer className="fs-5 p-3">
+                  <CardDetailsTextContainer className="p-3">
                     <p>{data.bio1}</p>
                     <p>{data.bio2}</p>
                     <p>{data.bio3}</p>

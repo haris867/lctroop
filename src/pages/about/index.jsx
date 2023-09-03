@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 const AboutCardDetails = styled(CardDetails)`
   width: 90%;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 3px 8px !important;
 `;
 
 export default function About() {
@@ -15,7 +16,7 @@ export default function About() {
           <title>Bits & Bots | About</title>
         </Helmet> */}
       <div className="d-flex justify-content-center">
-        <St.Heading className="d-flex justify-content-center align-items-center pt-3">
+        <St.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
           <span className="glow me-2">-</span>ABOUT US
           <span className="glow ms-2">-</span>
         </St.Heading>
@@ -27,7 +28,7 @@ export default function About() {
             <S.AboutImage src="/images/about1.jpg" />
           </div>
           <AboutCardDetails className="mx-auto">
-            <CardDetailsTextContainer className="fs-5 p-3">
+            <CardDetailsTextContainer className="pt-2 pb-3">
               <S.AboutCardText>
                 LC TROOP ENTERTAINMENT AS is a record label / collective based
                 in Oslo, Norway, founded by artist Young Cisto.
@@ -47,7 +48,7 @@ export default function About() {
             <S.AboutImage src="/images/about2.jpg" />
           </div>
           <AboutCardDetails className="mx-auto">
-            <CardDetailsTextContainer className="fs-5 p-3">
+            <CardDetailsTextContainer className="pt-2 pb-3">
               <S.AboutCardText>
                 We empower our acts with values such as excellence, integrity
                 and abundance. These principals are central in our company and
