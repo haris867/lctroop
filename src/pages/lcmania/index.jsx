@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { ChaoticOrbit } from "@uiball/loaders";
 import useGetData from "../../hooks/api/getData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   PiSpeakerSimpleHighBold,
   PiSpeakerSimpleSlashBold,
@@ -43,6 +43,15 @@ export default function SingleLcMania() {
   const toggleMute = () => {
     setIsMuted(!isMuted);
   };
+  useEffect(() => {
+    const videoElements = document.querySelectorAll("video");
+    videoElements.forEach((video) => {
+      video.setAttribute("playsinline", true);
+      video.addEventListener("play", function () {
+        this.autoplay = true;
+      });
+    });
+  }, []);
   if (isFetchLoading) {
     return (
       <div className="d-flex justify-content-center align-items-center w-100 h-100">
