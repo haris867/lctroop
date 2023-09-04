@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { ChaoticOrbit } from "@uiball/loaders";
 import useGetData from "../../hooks/api/getData";
-// import { useState, useEffect } from "react";
-// import {
-//   PiSpeakerSimpleHighBold,
-//   PiSpeakerSimpleSlashBold,
-// } from "react-icons/pi";
+import { useState } from "react";
+import {
+  PiSpeakerSimpleHighBold,
+  PiSpeakerSimpleSlashBold,
+} from "react-icons/pi";
 import Carousel from "react-bootstrap/Carousel";
 
 const CardImage = styled.img`
@@ -39,19 +39,11 @@ export default function SingleLcMania() {
   const { data, isFetchLoading, isFetchError } = useGetData(singleArticleUrl);
   const article = data[0];
   console.log(article);
-  //   const [isMuted, setIsMuted] = useState(true);
-  //   const toggleMute = () => {
-  //     setIsMuted(!isMuted);
-  //   };
-  //   useEffect(() => {
-  //     const videoElements = document.querySelectorAll("video");
-  //     videoElements.forEach((video) => {
-  //       video.setAttribute("playsinline", true);
-  //       video.addEventListener("play", function () {
-  //         this.autoplay = true;
-  //       });
-  //     });
-  //   }, []);
+  const [isMuted, setIsMuted] = useState(true);
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+  };
+
   if (isFetchLoading) {
     return (
       <div className="d-flex justify-content-center align-items-center w-100 h-100">
@@ -107,23 +99,23 @@ export default function SingleLcMania() {
             {article.video1Url && (
               <div
                 className="video-container cursor-pointer p-0 mt-4"
-                // onClick={toggleMute}
+                onClick={toggleMute}
               >
                 <video
                   autoPlay
                   playsInline
                   loop
-                  muted
+                  muted={isMuted}
                   className="w-100"
                   src={article.video1Url}
                   alt={`Video from ${article.title}`}
                 />
                 <div className="d-flex justify-content-end position-relative video-speaker-icon">
-                  {/* {isMuted ? (
+                  {isMuted ? (
                     <PiSpeakerSimpleSlashBold />
                   ) : (
                     <PiSpeakerSimpleHighBold />
-                  )} */}
+                  )}
                 </div>
               </div>
             )}
@@ -162,23 +154,23 @@ export default function SingleLcMania() {
             {article.video2Url && (
               <div
                 className="video-container cursor-pointer p-0 mt-4"
-                // onClick={toggleMute}
+                onClick={toggleMute}
               >
                 <video
                   autoPlay
                   playsInline
                   loop
-                  muted
+                  muted={isMuted}
                   className="w-100"
                   src={article.video1Url}
                   alt={`Video from ${article.title}`}
                 />
                 <div className="d-flex justify-content-end position-relative video-speaker-icon">
-                  {/* {isMuted ? (
+                  {isMuted ? (
                     <PiSpeakerSimpleSlashBold />
                   ) : (
                     <PiSpeakerSimpleHighBold />
-                  )} */}
+                  )}
                 </div>
               </div>
             )}
