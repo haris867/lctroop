@@ -103,7 +103,7 @@ export default function SingleLcMania() {
               >
                 <video
                   autoPlay
-                  //   playsInline
+                  playsInline
                   loop
                   muted={isMuted}
                   className="w-100"
