@@ -18,7 +18,7 @@ export default function Footer() {
       </div>
       <ul className="m-0">
         <li>
-          <NavLink to="/creators">Creators</NavLink>
+          <NavLink to="/latest">Latest</NavLink>
         </li>
         <li>
           <NavLink to="/about">About</NavLink>

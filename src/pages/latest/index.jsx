@@ -41,14 +41,8 @@ const CardDetails = styled.div`
   position: relative;
   bottom: 34px;
 `;
-const SectionHeading = styled.h2`
-  color: #fff;
-  font-family: "Lao MN", sans-serif;
-  border-bottom: 3px solid #ffd700;
-  display: inline-block !important;
-`;
 
-export default function News() {
+export default function Latest() {
   const { data, isFetchLoading, isFetchError } = useGetData(fetchUrlNews);
 
   if (isFetchLoading) {
@@ -71,7 +65,7 @@ export default function News() {
     <Container className="fade-in">
       <div className="d-flex justify-content-center">
         <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
-          <span className="glow me-2">-</span>NEWS
+          <span className="glow me-2">-</span>LATEST
           <span className="glow ms-2">-</span>
         </S.Heading>
       </div>

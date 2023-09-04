@@ -5,6 +5,11 @@ export const Heading = styled.h1`
   font-size: clamp(1.3rem, 2vw, 2.3rem);
 `;
 
+export const SubHeading = styled.h2`
+  font-family: "N27", sans-serif;
+  font-size: clamp(1.2rem, 1.7vw, 2rem);
+`;
+
 export const JoinButton = styled.button`
   font-size: calc(1rem + 0.3vw) !important;
   border-radius: 5px;

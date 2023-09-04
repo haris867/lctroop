@@ -11,7 +11,7 @@ function Scene({ ...props }) {
     <>
       <group {...props} dispose={null}>
         <scene name="Scene 1">
-          <group name="Speaker" position={[0, 20, -10]} scale={1}>
+          <group name="Speaker" position={[-10, 20, -10]} scale={1}>
             <mesh
               name="Cube"
               geometry={nodes.Cube.geometry}
@@ -123,8 +123,8 @@ export default function Speaker() {
           enableZoom={false}
           minPolarAngle={Math.PI / 2 - 0.3}
           maxPolarAngle={Math.PI / 2 + 0.3}
-          minAzimuthAngle={-Math.PI / 4}
-          maxAzimuthAngle={Math.PI / 4}
+          minAzimuthAngle={Math.PI / 4}
+          maxAzimuthAngle={(3 * Math.PI) / 4}
           rotateSpeed={0.1}
         />
       </Canvas>

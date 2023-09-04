@@ -34,7 +34,6 @@ export default function Nav() {
   }
   return (
     <>
-      {/* <MenuIcon className="hamburger-icon" onClick={handleHamburger} /> */}
       <MenuButton
         onClick={() => {
           setIsClosed(!isClosed);
@@ -71,10 +70,36 @@ export default function Nav() {
                   setIsClosed(!isClosed);
                   handleHamburger();
                 }}
+                to="/lcmanias"
+              >
+                <span className="glow me-2">-</span>
+                LCMANIA
+                <span className="glow ms-2">-</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                onClick={() => {
+                  setIsClosed(!isClosed);
+                  handleHamburger();
+                }}
                 to="/creators"
               >
                 <span className="glow me-2">-</span>
                 CREATORS
+                <span className="glow ms-2">-</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                onClick={() => {
+                  setIsClosed(!isClosed);
+                  handleHamburger();
+                }}
+                to="/latest"
+              >
+                <span className="glow me-2">-</span>
+                LATEST
                 <span className="glow ms-2">-</span>
               </NavLink>
             </li>

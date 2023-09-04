@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import * as S from "./index.styles";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { SubHeading } from "../../components/commonStyles/headings";
 import NewsSlider from "../../components/newsSlider";
@@ -77,7 +76,7 @@ function Stars({ count = 100 }) {
   );
 }
 
-function AnimatedLight() {
+export function AnimatedLight() {
   const lightRef = useRef();
 
   useFrame(({ clock }) => {
@@ -107,7 +106,7 @@ function ThreeFiberScene() {
       <perspectiveCamera aspect={1 / 4} fov={75} position={[0, 0, 25]} />
       <AnimatedLight />
       <Stars count={200} />
-      <RotatingSphere position={[0, 1.5, 0]} />
+      <RotatingSphere position={[0, 1.3, 0]} />
     </Canvas>
   );
 }
@@ -116,7 +115,7 @@ export default function Home() {
   return (
     <div className="h-100 d-flex justify-content-center flex-column">
       <div className="w-100 d-flex justify-content-center">
-        <div className="text-center mx-auto mt-3 w-75 position-absolute heading-animation">
+        <div className="text-center mx-auto mt-3 position-absolute  main-heading-home">
           <S.Heading className="d-flex justify-content-center align-items-center">
             <span className="glow me-2">-</span>REWRITING THE RULES OF
             ENTERTAINMENT
@@ -124,19 +123,21 @@ export default function Home() {
           </S.Heading>
         </div>
       </div>
-
-      {/* <div className="d-flex justify-content-center position-absolute w-75 text-center">
-        <S.Heading className="subheading-animation d-flex justify-content-center align-items-center position-relative fs-4">
-          ONE STAR AT A TIME
-        </S.Heading>
-      </div> */}
+      <div className="w-100 d-flex justify-content-center">
+        <div className="text-center w-75 mx-auto position-absolute  subheading-home">
+          <S.SubHeading className="">
+            One star at a time<span className="glow">.</span>
+          </S.SubHeading>
+        </div>
+      </div>
       <ThreeFiberScene />
-      <Row className="home-content w-100 m-0">
+      <Row className="home-content w-100 m-0 d-flex justify-content-center">
         <NewsSlider />
         <Col
           xs={12}
-          xl={6}
-          className="d-flex justify-content-center align-items-center p-0 mt-3"
+          lg={6}
+          xl={5}
+          className="d-flex justify-content-center align-items-center p-0 my-4"
         >
           <div className="d-flex flex-column justify-content-center">
             <div className="d-flex justify-content-center">
@@ -148,7 +149,7 @@ export default function Home() {
 
             <Speaker />
             <div className="d-flex justify-content-center">
-              <SubHeading className="pt-3 fs-5">
+              <SubHeading className="pt-3 fs-6">
                 WANT US TO KEEP YOU IN THE LOOP?
               </SubHeading>
             </div>
@@ -161,17 +162,6 @@ export default function Home() {
           </div>
         </Col>
       </Row>
-
-      {/* <div className="position-absolute join-button d-flex justify-content-center flex-column fade-in-button">
-        <div>
-          <SubHeading className="d-flex justify-content-center align-items-center pt-3 fs-5">
-            WANT US TO KEEP YOU IN THE LOOP?
-          </SubHeading>
-        </div>
-        <Link to="/join" className="d-flex justify-content-center">
-          <S.JoinButton className="mt-3">JOIN US</S.JoinButton>
-        </Link>
-      </div> */}
     </div>
   );
 }
