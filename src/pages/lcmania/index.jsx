@@ -5,10 +5,10 @@ import { useParams } from "react-router-dom";
 import { ChaoticOrbit } from "@uiball/loaders";
 import useGetData from "../../hooks/api/getData";
 // import { useState, useEffect } from "react";
-import {
-  PiSpeakerSimpleHighBold,
-  PiSpeakerSimpleSlashBold,
-} from "react-icons/pi";
+// import {
+//   PiSpeakerSimpleHighBold,
+//   PiSpeakerSimpleSlashBold,
+// } from "react-icons/pi";
 import Carousel from "react-bootstrap/Carousel";
 
 const CardImage = styled.img`
