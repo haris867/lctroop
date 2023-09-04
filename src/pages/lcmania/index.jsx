@@ -159,7 +159,7 @@ export default function SingleLcMania() {
                   autoPlay
                   playsInline
                   loop
-                  muted
+                  muted={isMuted}
                   className="w-100"
                   src={article.video1Url}
                   alt={`Video from ${article.title}`}
