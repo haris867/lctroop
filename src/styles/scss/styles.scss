@@ -156,11 +156,11 @@ footer ul li a {
   top: 30%;
 }
 
-.subheading-home {
-  animation: subheading 4s forwards 4s;
-  opacity: 0;
-  transform: translateY(90px);
-}
+// .subheading-home {
+//   animation: subheading 4s forwards 4s;
+//   opacity: 0;
+//   transform: translateY(90px);
+// }
 
 video {
   border-radius: 5px;
@@ -190,22 +190,22 @@ video {
   }
 }
 
-@keyframes subheading {
-  0% {
-    opacity: 0;
-    transform: translateY(90px);
-  }
+// @keyframes subheading {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(90px);
+//   }
 
-  40% {
-    opacity: 0;
-    transform: translateY(90px);
-  }
+//   40% {
+//     opacity: 0;
+//     transform: translateY(90px);
+//   }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0px);
+//   }
+// }
 
 .fade-in {
   opacity: 0;
@@ -213,21 +213,6 @@ video {
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.fade-in-button {
-  opacity: 0;
-  animation: fadeIn 2s forwards 4s;
-}
-
-@keyframes fadeInButton {
   0% {
     opacity: 0;
   }
@@ -295,7 +280,7 @@ video {
 }
 
 .home-content {
-  animation: home-content 4s forwards 6s ease-out;
+  animation: home-content 4s forwards 3s ease-out;
   position: relative;
   top: 60px;
   opacity: 0;

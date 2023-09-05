@@ -83,13 +83,13 @@ export default function Home() {
         <div className="w-100 d-flex justify-content-center position-relative">
           <SphereScene />
         </div>
-        <div className="w-100 d-flex justify-content-center">
+        {/* <div className="w-100 d-flex justify-content-center">
           <div className="text-center w-75 mx-auto subheading-home">
             <S.SubHeading className="">
               One star at a time<span className="glow">.</span>
             </S.SubHeading>
           </div>
-        </div>
+        </div> */}
         <Row className="home-content w-100 m-0 d-flex justify-content-center">
           <NewsSlider />
           <Col
