@@ -174,6 +174,7 @@ footer ul li a {
   animation: subheading 4s forwards 4s;
   opacity: 0;
   transform: translateY(90px);
+  top: 40vh;
 }
 
 video {
@@ -398,50 +399,50 @@ video {
   .main-heading-home {
     top: 30vh;
   }
-  .subheading-home {
-    top: 40vh;
-  }
+  // .subheading-home {
+  //   top: 40vh;
+  // }
 }
 @media (min-height: 400px) {
   .main-heading-home {
     top: 26vh;
   }
-  .subheading-home {
-    top: 35vh;
-  }
+  // .subheading-home {
+  //   top: 35vh;
+  // }
 }
 @media (min-height: 500px) {
   .main-heading-home {
     top: 24vh;
   }
-  .subheading-home {
-    top: 32vh;
-  }
+  // .subheading-home {
+  //   top: 32vh;
+  // }
 }
 @media (min-height: 630px) {
   .main-heading-home {
     top: 20vh;
   }
-  .subheading-home {
-    top: 28vh;
-  }
+  // .subheading-home {
+  //   top: 28vh;
+  // }
 }
 
 @media (min-height: 800px) {
   .main-heading-home {
     top: 18vh;
   }
-  .subheading-home {
-    top: 26vh;
-  }
+  // .subheading-home {
+  //   top: 26vh;
+  // }
 }
 @media (min-height: 1100px) {
   .main-heading-home {
     top: 15vh;
   }
-  .subheading-home {
-    top: 22vh;
-  }
+  // .subheading-home {
+  //   top: 22vh;
+  // }
 }
 
 // @media (min-height: 700px) {

@@ -106,7 +106,7 @@ function ThreeFiberScene() {
       <perspectiveCamera aspect={1 / 4} fov={75} position={[0, 0, 25]} />
       <AnimatedLight />
       <Stars count={200} />
-      <RotatingSphere position={[0, 1.3, 0]} />
+      <RotatingSphere position={[0, 1.5, 0]} />
     </Canvas>
   );
 }
@@ -123,14 +123,15 @@ export default function Home() {
           </S.Heading>
         </div>
       </div>
+
+      <ThreeFiberScene />
       <div className="w-100 d-flex justify-content-center">
-        <div className="text-center w-75 mx-auto position-absolute  subheading-home">
+        <div className="text-center w-75 mx-auto position-relative subheading-home">
           <S.SubHeading className="">
             One star at a time<span className="glow">.</span>
           </S.SubHeading>
         </div>
       </div>
-      <ThreeFiberScene />
       <Row className="home-content w-100 m-0 d-flex justify-content-center">
         <NewsSlider />
         <Col
