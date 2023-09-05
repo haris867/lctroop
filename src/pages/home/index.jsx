@@ -106,7 +106,7 @@ function ThreeFiberScene() {
       <perspectiveCamera aspect={1 / 4} fov={75} position={[0, 0, 25]} />
       <AnimatedLight />
       <Stars count={200} />
-      <RotatingSphere position={[0, 1.5, 0]} />
+      <RotatingSphere position={[0, 1.2, 0]} />
     </Canvas>
   );
 }
