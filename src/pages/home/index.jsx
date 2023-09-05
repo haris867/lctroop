@@ -39,14 +39,14 @@ export function AnimatedLight() {
 
       lightRef.current.position.x = radius * Math.cos(time);
       lightRef.current.position.y = 15; // Keeping the Y position constant
-      lightRef.current.position.z = radius * Math.sin(time) - 23;
+      lightRef.current.position.z = radius * Math.sin(time) - 20;
     }
   });
 
   return (
     <pointLight
       ref={lightRef}
-      position={[15, 15, -25]}
+      position={[15, 15, -15]}
       intensity={2000}
       distance={100}
     />
