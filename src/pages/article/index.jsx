@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { ChaoticOrbit } from "@uiball/loaders";
 import useGetData from "../../hooks/api/getData";
+import StarryBackground from "../../components/stars";
 
 const CardImage = styled.img`
   border: none;
@@ -49,93 +50,85 @@ export default function Article() {
     );
   if (article) {
     return (
-      <Container className="mt-4 fade-in">
-        <Col
-          xs={9}
-          sm={9}
-          md={7}
-          lg={6}
-          xl={5}
-          className="d-flex justify-content-center flex-column mb-3 mx-auto"
-        >
-          <Row className="justify-content-center">
-            <div className="d-flex justify-content-center">
-              <S.Heading className="d-flex justify-content-center align-items-center mb-3 fs-2">
-                <span className="glow me-2">-</span>
-                {article.title}
-                <span className="glow ms-2">-</span>
-              </S.Heading>
-            </div>
-            {article.subheading && (
+      <>
+        <StarryBackground />
+        <Container className="mt-4 fade-in">
+          <Col
+            xs={9}
+            sm={9}
+            md={7}
+            lg={6}
+            xl={5}
+            className="d-flex justify-content-center flex-column mb-3 mx-auto"
+          >
+            <Row className="justify-content-center">
               <div className="d-flex justify-content-center">
-                <S.SubHeading className="d-flex justify-content-center align-items-center mb-4 fs-5 text-center mt-2 border-0">
-                  {article.subheading}
-                </S.SubHeading>
+                <S.Heading className="d-flex justify-content-center align-items-center mb-3 fs-2">
+                  <span className="glow me-2">-</span>
+                  {article.title}
+                  <span className="glow ms-2">-</span>
+                </S.Heading>
               </div>
-            )}
-            {article.mainImageUrl && (
-              <CardImage
-                className="mb-3"
-                src={article.mainImageUrl}
-                alt={`Image of ${article.title}`}
-              />
-            )}
+              {article.subheading && (
+                <div className="d-flex justify-content-center">
+                  <S.SubHeading className="d-flex justify-content-center align-items-center mb-4 fs-5 text-center mt-2 border-0">
+                    {article.subheading}
+                  </S.SubHeading>
+                </div>
+              )}
+              {article.mainImageUrl && (
+                <CardImage
+                  className="mb-3"
+                  src={article.mainImageUrl}
+                  alt={`Image of ${article.title}`}
+                />
+              )}
 
-            {article.paragraph1 && (
-              <CardDetails className="px-0 mt-3 mb-5">
-                <CardDetailsTextContainer className="p-3">
-                  <p>{article.paragraph1}</p>
-                  {/* <p>{article.paragraph2}</p> */}
-                  <p>{article.paragraph3}</p>
-                </CardDetailsTextContainer>
-              </CardDetails>
-            )}
-            {article.image1Url && (
-              <CardImage
-                className="mb-3"
-                src={article.image1Url}
-                alt={`Image from ${article.title}`}
-              />
-            )}
-            {article.paragraph4 && (
-              <CardDetails className="px-0 mt-3 mb-5">
-                <CardDetailsTextContainer className="p-3">
-                  <p>{article.paragraph4}</p>
-                  {/* <p>{article.paragraph5}</p> */}
-                  <p>{article.paragraph6}</p>
-                </CardDetailsTextContainer>
-              </CardDetails>
-            )}
-            {article.image2Url && (
-              <CardImage
-                className="mb-3"
-                src={article.image2Url}
-                alt={`Image from ${article.title}`}
-              />
-            )}
-            {article.paragraph7 && (
-              <CardDetails className="px-0 mt-3 mb-5">
-                <CardDetailsTextContainer className="p-3">
-                  <p>{article.paragraph7}</p>
-                  {/* <p>{article.paragraph8}</p> */}
-                  <p>{article.paragraph9}</p>
-                </CardDetailsTextContainer>
-              </CardDetails>
-            )}
-            {/* <Col xs={12} xl={8} xxl={6}>
-              {article.bio1 && (
-                <CardDetails>
+              {article.paragraph1 && (
+                <CardDetails className="px-0 mt-3 mb-5">
                   <CardDetailsTextContainer className="p-3">
-                    <p>{article.bio1}</p>
-                    <p>{article.bio2}</p>
-                    <p>{article.bio3}</p>
+                    <p>{article.paragraph1}</p>
+                    <p>{article.paragraph2}</p>
+                    <p>{article.paragraph3}</p>
                   </CardDetailsTextContainer>
                 </CardDetails>
               )}
-            </Col> */}
-          </Row>
-        </Col>
-      </Container>
+              {article.image1Url && (
+                <CardImage
+                  className="mb-3"
+                  src={article.image1Url}
+                  alt={`Image from ${article.title}`}
+                />
+              )}
+              {article.paragraph4 && (
+                <CardDetails className="px-0 mt-3 mb-5">
+                  <CardDetailsTextContainer className="p-3">
+                    <p>{article.paragraph4}</p>
+                    <p>{article.paragraph5}</p>
+                    <p>{article.paragraph6}</p>
+                  </CardDetailsTextContainer>
+                </CardDetails>
+              )}
+              {article.image2Url && (
+                <CardImage
+                  className="mb-3"
+                  src={article.image2Url}
+                  alt={`Image from ${article.title}`}
+                />
+              )}
+              {article.paragraph7 && (
+                <CardDetails className="px-0 mt-3 mb-5">
+                  <CardDetailsTextContainer className="p-3">
+                    <p>{article.paragraph7}</p>
+                    <p>{article.paragraph8}</p>
+                    <p>{article.paragraph9}</p>
+                  </CardDetailsTextContainer>
+                </CardDetails>
+              )}
+            </Row>
+          </Col>
+        </Container>
+      </>
     );
   }
 }

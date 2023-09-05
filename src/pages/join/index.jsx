@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import useSendData from "../../hooks/api/sendData";
 import { ChaoticOrbit } from "@uiball/loaders";
+import StarryBackground from "../../components/stars";
 
 const InputContainer = styled.div`
   font-family: "N27", sans-serif;
@@ -103,73 +104,76 @@ export default function Join() {
     );
   }
   return (
-    <div className="fade-in">
-      <div className="d-flex justify-content-center">
-        <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
-          <span className="glow me-2">-</span>JOIN US
-          <span className="glow ms-2">-</span>
-        </S.Heading>
-      </div>
+    <>
+      <StarryBackground />
+      <div className="fade-in">
+        <div className="d-flex justify-content-center">
+          <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
+            <span className="glow me-2">-</span>JOIN US
+            <span className="glow ms-2">-</span>
+          </S.Heading>
+        </div>
 
-      <div>
-        <Speaker />
+        <div>
+          <Speaker />
+        </div>
+        <div className="d-flex justify-content-center">
+          <S.SubHeading className="d-flex justify-content-center align-items-center pt-3">
+            {joinFormMessage}
+          </S.SubHeading>
+        </div>
+        <Container className="mt-3">
+          <form onSubmit={handleSubmit(onJoinSubmit)}>
+            <InputContainer className="d-flex flex-column mx-auto my-2">
+              <ContactLabel className="my-1" htmlFor="name">
+                NAME
+              </ContactLabel>
+              <ContactInput
+                className="ps-2"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required={true}
+                {...register("name")}
+                minLength={5}
+              />
+            </InputContainer>
+            <InputContainer className="d-flex flex-column mx-auto my-2">
+              <ContactLabel className="my-1" htmlFor="email">
+                EMAIL
+              </ContactLabel>
+              <ContactInput
+                className="ps-2"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your email address"
+                required={true}
+                {...register("email")}
+              />
+            </InputContainer>
+            <InputContainer className="d-flex flex-column mx-auto my-2">
+              <ContactLabel className="my-1" htmlFor="phone">
+                PHONE
+              </ContactLabel>
+              <ContactInput
+                className="ps-2"
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Your phone number"
+                required={true}
+                {...register("phone")}
+                minLength="8"
+              />
+            </InputContainer>
+            <div className="d-flex justify-content-center mt-4">
+              <JoinButton type="submit">SUBSCRIBE</JoinButton>
+            </div>
+          </form>
+        </Container>
       </div>
-      <div className="d-flex justify-content-center">
-        <S.SubHeading className="d-flex justify-content-center align-items-center pt-3">
-          {joinFormMessage}
-        </S.SubHeading>
-      </div>
-      <Container className="mt-3">
-        <form onSubmit={handleSubmit(onJoinSubmit)}>
-          <InputContainer className="d-flex flex-column mx-auto my-2">
-            <ContactLabel className="my-1" htmlFor="name">
-              NAME
-            </ContactLabel>
-            <ContactInput
-              className="ps-2"
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Your name"
-              required={true}
-              {...register("name")}
-              minLength={5}
-            />
-          </InputContainer>
-          <InputContainer className="d-flex flex-column mx-auto my-2">
-            <ContactLabel className="my-1" htmlFor="email">
-              EMAIL
-            </ContactLabel>
-            <ContactInput
-              className="ps-2"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Your email address"
-              required={true}
-              {...register("email")}
-            />
-          </InputContainer>
-          <InputContainer className="d-flex flex-column mx-auto my-2">
-            <ContactLabel className="my-1" htmlFor="phone">
-              PHONE
-            </ContactLabel>
-            <ContactInput
-              className="ps-2"
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="Your phone number"
-              required={true}
-              {...register("phone")}
-              minLength="8"
-            />
-          </InputContainer>
-          <div className="d-flex justify-content-center mt-4">
-            <JoinButton type="submit">SUBSCRIBE</JoinButton>
-          </div>
-        </form>
-      </Container>
-    </div>
+    </>
   );
 }

@@ -10,6 +10,7 @@ import {
   PiSpeakerSimpleSlashBold,
 } from "react-icons/pi";
 import Carousel from "react-bootstrap/Carousel";
+import StarryBackground from "../../components/stars";
 
 const CardImage = styled.img`
   border: none;
@@ -61,154 +62,156 @@ export default function SingleLcMania() {
     );
   if (article) {
     return (
-      <Container className="mt-4 fade-in">
-        {/* Add fade-in class above */}
-        <Col
-          xs={9}
-          sm={9}
-          md={7}
-          lg={6}
-          xl={5}
-          className="d-flex justify-content-center flex-column mb-3 mx-auto"
-        >
-          <Row className="justify-content-center">
-            <div className="d-flex justify-content-center">
-              <S.Heading className="d-flex justify-content-center align-items-center mb-3 fs-2">
-                <span className="glow me-2">-</span>
-                LCMANIA {article.title}
-                <span className="glow ms-2">-</span>
-              </S.Heading>
-            </div>
-            {article.mainImageUrl && (
-              <CardImage
-                className="my-4"
-                src={article.mainImageUrl}
-                alt={`Image of ${article.title}`}
-              />
-            )}
+      <>
+        <StarryBackground />
+        <Container className="mt-4 fade-in">
+          <Col
+            xs={9}
+            sm={9}
+            md={7}
+            lg={6}
+            xl={5}
+            className="d-flex justify-content-center flex-column mb-3 mx-auto"
+          >
+            <Row className="justify-content-center">
+              <div className="d-flex justify-content-center">
+                <S.Heading className="d-flex justify-content-center align-items-center mb-3 fs-2">
+                  <span className="glow me-2">-</span>
+                  LCMANIA {article.title}
+                  <span className="glow ms-2">-</span>
+                </S.Heading>
+              </div>
+              {article.mainImageUrl && (
+                <CardImage
+                  className="my-4"
+                  src={article.mainImageUrl}
+                  alt={`Image of ${article.title}`}
+                />
+              )}
 
-            {article.paragraph1 && (
-              <CardDetails className="px-0 my-4">
-                <CardDetailsTextContainer className="px-3 pt-2 pb-1">
-                  <p>{article.paragraph1}</p>
-                  <p>{article.paragraph2}</p>
-                  <p>{article.paragraph3}</p>
-                </CardDetailsTextContainer>
-              </CardDetails>
-            )}
-            {article.video1Url && (
-              <div
-                className="video-container cursor-pointer p-0 mt-4"
-                onClick={toggleMute}
-              >
-                <video
-                  autoPlay
-                  playsInline
-                  loop
-                  muted={isMuted}
-                  className="w-100"
-                  src={article.video1Url}
-                  alt={`Video from ${article.title}`}
-                />
-                <div className="d-flex justify-content-end position-relative video-speaker-icon">
-                  {isMuted ? (
-                    <PiSpeakerSimpleSlashBold />
-                  ) : (
-                    <PiSpeakerSimpleHighBold />
-                  )}
+              {article.paragraph1 && (
+                <CardDetails className="px-0 my-4">
+                  <CardDetailsTextContainer className="px-3 pt-2 pb-1">
+                    <p>{article.paragraph1}</p>
+                    <p>{article.paragraph2}</p>
+                    <p>{article.paragraph3}</p>
+                  </CardDetailsTextContainer>
+                </CardDetails>
+              )}
+              {article.video1Url && (
+                <div
+                  className="video-container cursor-pointer p-0 mt-4"
+                  onClick={toggleMute}
+                >
+                  <video
+                    autoPlay
+                    playsInline
+                    loop
+                    muted={isMuted}
+                    className="w-100"
+                    src={article.video1Url}
+                    alt={`Video from ${article.title}`}
+                  />
+                  <div className="d-flex justify-content-end position-relative video-speaker-icon">
+                    {isMuted ? (
+                      <PiSpeakerSimpleSlashBold />
+                    ) : (
+                      <PiSpeakerSimpleHighBold />
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
-            {article.slideshow1 && (
-              <Carousel className="p-0 mt-4 mb-5 article-carousel">
-                {article.slideshow1.map((slide, index) => (
-                  <Carousel.Item key={slide.key}>
-                    <div className="d-flex justify-content-center">
-                      <Col xs={12}>
-                        <img
-                          src={slide.url}
-                          alt={`Slide for LCMANIA ${article.title} #${slide.key}`}
-                        />
-                      </Col>
-                    </div>
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-            )}
-            {article.image1Url && (
-              <CardImage
-                className="my4"
-                src={article.image1Url}
-                alt={`LCMANIA ${article.title}`}
-              />
-            )}
-            {article.paragraph4 && (
-              <CardDetails className="px-0 my-4">
-                <CardDetailsTextContainer className="px-3 pt-2 pb-1">
-                  <p>{article.paragraph4}</p>
-                  <p>{article.paragraph5}</p>
-                  <p>{article.paragraph6}</p>
-                </CardDetailsTextContainer>
-              </CardDetails>
-            )}
-            {article.video2Url && (
-              <div
-                className="video-container cursor-pointer p-0 mt-4"
-                onClick={toggleMute}
-              >
-                <video
-                  autoPlay
-                  playsInline
-                  loop
-                  muted={isMuted}
-                  className="w-100"
-                  src={article.video1Url}
-                  alt={`Video from ${article.title}`}
+              )}
+              {article.slideshow1 && (
+                <Carousel className="p-0 mt-4 mb-5 article-carousel">
+                  {article.slideshow1.map((slide, index) => (
+                    <Carousel.Item key={slide.key}>
+                      <div className="d-flex justify-content-center">
+                        <Col xs={12}>
+                          <img
+                            src={slide.url}
+                            alt={`Slide for LCMANIA ${article.title} #${slide.key}`}
+                          />
+                        </Col>
+                      </div>
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              )}
+              {article.image1Url && (
+                <CardImage
+                  className="my4"
+                  src={article.image1Url}
+                  alt={`LCMANIA ${article.title}`}
                 />
-                <div className="d-flex justify-content-end position-relative video-speaker-icon">
-                  {isMuted ? (
-                    <PiSpeakerSimpleSlashBold />
-                  ) : (
-                    <PiSpeakerSimpleHighBold />
-                  )}
+              )}
+              {article.paragraph4 && (
+                <CardDetails className="px-0 my-4">
+                  <CardDetailsTextContainer className="px-3 pt-2 pb-1">
+                    <p>{article.paragraph4}</p>
+                    <p>{article.paragraph5}</p>
+                    <p>{article.paragraph6}</p>
+                  </CardDetailsTextContainer>
+                </CardDetails>
+              )}
+              {article.video2Url && (
+                <div
+                  className="video-container cursor-pointer p-0 mt-4"
+                  onClick={toggleMute}
+                >
+                  <video
+                    autoPlay
+                    playsInline
+                    loop
+                    muted={isMuted}
+                    className="w-100"
+                    src={article.video1Url}
+                    alt={`Video from ${article.title}`}
+                  />
+                  <div className="d-flex justify-content-end position-relative video-speaker-icon">
+                    {isMuted ? (
+                      <PiSpeakerSimpleSlashBold />
+                    ) : (
+                      <PiSpeakerSimpleHighBold />
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
-            {article.slideshow2 && (
-              <Carousel className="p-0 mt-4 mb-5 article-carousel">
-                {article.slideshow1.map((slide, index) => (
-                  <Carousel.Item key={slide.key}>
-                    <div className="d-flex justify-content-center">
-                      <Col xs={12}>
-                        <img
-                          src={slide.url}
-                          alt={`Slide for LCMANIA ${article.title} #${slide.key}`}
-                        />
-                      </Col>
-                    </div>
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-            )}
-            {article.image2Url && (
-              <CardImage
-                className="my-4"
-                src={article.image2Url}
-                alt={`Image from ${article.title}`}
-              />
-            )}
-            {article.paragraph7 && (
-              <CardDetails className="px-0 my-4">
-                <CardDetailsTextContainer className="px-3 pt-2 pb-1">
-                  <p>{article.paragraph7}</p>
-                  <p>{article.paragraph8}</p>
-                  <p>{article.paragraph9}</p>
-                </CardDetailsTextContainer>
-              </CardDetails>
-            )}
-          </Row>
-        </Col>
-      </Container>
+              )}
+              {article.slideshow2 && (
+                <Carousel className="p-0 mt-4 mb-5 article-carousel">
+                  {article.slideshow1.map((slide, index) => (
+                    <Carousel.Item key={slide.key}>
+                      <div className="d-flex justify-content-center">
+                        <Col xs={12}>
+                          <img
+                            src={slide.url}
+                            alt={`Slide for LCMANIA ${article.title} #${slide.key}`}
+                          />
+                        </Col>
+                      </div>
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              )}
+              {article.image2Url && (
+                <CardImage
+                  className="my-4"
+                  src={article.image2Url}
+                  alt={`Image from ${article.title}`}
+                />
+              )}
+              {article.paragraph7 && (
+                <CardDetails className="px-0 my-4">
+                  <CardDetailsTextContainer className="px-3 pt-2 pb-1">
+                    <p>{article.paragraph7}</p>
+                    <p>{article.paragraph8}</p>
+                    <p>{article.paragraph9}</p>
+                  </CardDetailsTextContainer>
+                </CardDetails>
+              )}
+            </Row>
+          </Col>
+        </Container>
+      </>
     );
   }
 }

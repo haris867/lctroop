@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useGetData from "../../hooks/api/getData";
 import { fetchUrlNews } from "../../utils/constants";
 import { ChaoticOrbit } from "@uiball/loaders";
+import StarryBackground from "../../components/stars";
 
 const NewsContainer = styled(Row)`
   gap: 10px;
@@ -62,36 +63,39 @@ export default function Latest() {
     return `${day}/${month}/${year}`;
   };
   return (
-    <Container className="fade-in">
-      <div className="d-flex justify-content-center">
-        <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
-          <span className="glow me-2">-</span>LATEST
-          <span className="glow ms-2">-</span>
-        </S.Heading>
-      </div>
-      <NewsContainer className="py-3">
-        {data.map((article) => (
-          <Card
-            xs={9}
-            sm={8}
-            md={6}
-            lg={4}
-            xl={3}
-            className="d-flex justify-content-center flex-column mb-3 mx-auto"
-            key={article.id}
-          >
-            <CardLink to={`/article/${article.id}`}>
-              <div>
-                <CardImage src={article.mainImageUrl} alt="" />
-                <CardDetails className="w-100 text-center pt-3 pb-1">
-                  <h2 className="pt-4 fs-3">{article.title}</h2>
-                  <h3 className="fs-6 mx-2">{formatDate(article.created)}</h3>
-                </CardDetails>
-              </div>
-            </CardLink>
-          </Card>
-        ))}
-      </NewsContainer>
-    </Container>
+    <>
+      <StarryBackground />
+      <Container className="fade-in">
+        <div className="d-flex justify-content-center">
+          <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
+            <span className="glow me-2">-</span>LATEST
+            <span className="glow ms-2">-</span>
+          </S.Heading>
+        </div>
+        <NewsContainer className="py-3">
+          {data.map((article) => (
+            <Card
+              xs={9}
+              sm={8}
+              md={6}
+              lg={4}
+              xl={3}
+              className="d-flex justify-content-center flex-column mb-3 mx-auto"
+              key={article.id}
+            >
+              <CardLink to={`/article/${article.id}`}>
+                <div>
+                  <CardImage src={article.mainImageUrl} alt="" />
+                  <CardDetails className="w-100 text-center pt-3 pb-1">
+                    <h2 className="pt-4 fs-3">{article.title}</h2>
+                    <h3 className="fs-6 mx-2">{formatDate(article.created)}</h3>
+                  </CardDetails>
+                </div>
+              </CardLink>
+            </Card>
+          ))}
+        </NewsContainer>
+      </Container>
+    </>
   );
 }

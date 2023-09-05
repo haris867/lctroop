@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import * as S from "../../components/commonStyles/headings";
 import styled from "styled-components";
 import Envelope from "../../components/envelope";
+import StarryBackground from "../../components/stars";
 
 const InputContainer = styled.div`
   font-family: "N27", sans-serif;
@@ -76,33 +77,35 @@ export default function Contact() {
     window.location.href = mailtoLink;
   };
   return (
-    <div className="fade-in">
-      <div className="d-flex justify-content-center mb-3">
-        <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
-          <span className="glow me-2">-</span>CONTACT US
-          <span className="glow ms-2">-</span>
-        </S.Heading>
-      </div>
-      <div>
-        <Envelope />
-      </div>
-      <Container className="mt-3">
-        <form onSubmit={handleSubmit}>
-          <InputContainer className="d-flex flex-column mx-auto mb-3">
-            <ContactLabel className="my-2" htmlFor="subject">
-              SUBJECT
-            </ContactLabel>
-            <ContactInput
-              className="ps-2"
-              type="text"
-              id="subject"
-              name="subject"
-              placeholder="Your subject"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-            />
-          </InputContainer>
-          {/* <InputContainer className="d-flex flex-column mx-auto">
+    <>
+      <StarryBackground />
+      <div className="fade-in">
+        <div className="d-flex justify-content-center mb-3">
+          <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
+            <span className="glow me-2">-</span>CONTACT US
+            <span className="glow ms-2">-</span>
+          </S.Heading>
+        </div>
+        <div>
+          <Envelope />
+        </div>
+        <Container className="mt-3">
+          <form onSubmit={handleSubmit}>
+            <InputContainer className="d-flex flex-column mx-auto mb-3">
+              <ContactLabel className="my-2" htmlFor="subject">
+                SUBJECT
+              </ContactLabel>
+              <ContactInput
+                className="ps-2"
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Your subject"
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+              />
+            </InputContainer>
+            {/* <InputContainer className="d-flex flex-column mx-auto">
           <ContactLabel className="my-1" htmlFor="email">
             EMAIL
           </ContactLabel>
@@ -114,24 +117,25 @@ export default function Contact() {
             placeholder="Your email address"
           />
         </InputContainer> */}
-          <InputContainer className="d-flex flex-column mx-auto mb-3">
-            <ContactLabel className="my-2" htmlFor="message">
-              MESSAGE
-            </ContactLabel>
-            <MessageInput
-              className="ps-2 mb-3"
-              id="message"
-              name="message"
-              placeholder="Your message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </InputContainer>
-          <div className="d-flex justify-content-center">
-            <ContactButton type="submit">SUBMIT</ContactButton>
-          </div>
-        </form>
-      </Container>
-    </div>
+            <InputContainer className="d-flex flex-column mx-auto mb-3">
+              <ContactLabel className="my-2" htmlFor="message">
+                MESSAGE
+              </ContactLabel>
+              <MessageInput
+                className="ps-2 mb-3"
+                id="message"
+                name="message"
+                placeholder="Your message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+            </InputContainer>
+            <div className="d-flex justify-content-center">
+              <ContactButton type="submit">SUBMIT</ContactButton>
+            </div>
+          </form>
+        </Container>
+      </div>
+    </>
   );
 }
