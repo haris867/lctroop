@@ -42,6 +42,13 @@ const CardDetails = styled.div`
   bottom: 34px;
 `;
 
+const SectionHeading = styled.h2`
+  color: #fff;
+  font-family: "Lao MN", sans-serif;
+  border-bottom: 3px solid #ffd700;
+  display: inline-block !important;
+`;
+
 export default function LcMania() {
   const LcManiaFetchUrl =
     "https://ft6jmh4l.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22lcmania%22%5D%7B%0A++%22title%22%3A+title%2C%0A++%22mainImageUrl%22%3A+mainImage.asset-%3Eurl%2C%0A++++%22id%22%3A+_id%2C%0A%7D%0A++%0A%0A";
@@ -64,6 +71,11 @@ export default function LcMania() {
             <span className="glow me-2">-</span>LCMANIA
             <span className="glow ms-2">-</span>
           </S.Heading>
+        </div>
+        <div className="d-flex justify-content-center py-3">
+          <SectionHeading className="d-flex justify-content-center align-items-center mb-4 fs-3">
+            Our annual festival
+          </SectionHeading>
         </div>
         <NewsContainer className="py-3">
           {data.map((article) => (
