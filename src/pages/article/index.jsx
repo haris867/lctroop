@@ -12,7 +12,6 @@ const CardImage = styled.img`
   object-fit: cover;
   aspect-ratio: 3/2;
   border-radius: 5px;
-  box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 8px !important;
   padding: 0;
 `;
 
@@ -26,6 +25,7 @@ export const CardDetailsTextContainer = styled.div`
   border-radius: 5px;
   font-family: "N27", sans-serif;
   font-size: calc(1rem + 0.2vw) !important;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 8px !important;
 `;
 
 export default function Article() {

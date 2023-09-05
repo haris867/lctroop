@@ -42,7 +42,6 @@ export const AboutImage = styled.img`
   width: 90%;
   object-fit: cover;
   aspect-ratio: 3/1.85;
-  box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 8px !important;
 `;
 
 export const AboutCardText = styled.p`

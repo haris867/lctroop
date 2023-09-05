@@ -58,7 +58,7 @@ export default function NewsSlider() {
                     alt={`Slide ${article.title} #${article.id}`}
                   />
                   <Carousel.Caption>
-                    <h3>{article.title}</h3>
+                    <h3 className="m-0">{article.title}</h3>
                   </Carousel.Caption>
                 </Link>
               </Col>

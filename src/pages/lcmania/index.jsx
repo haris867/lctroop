@@ -17,7 +17,6 @@ const CardImage = styled.img`
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
-  box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 8px !important;
 
   padding: 0;
 `;
@@ -32,6 +31,7 @@ export const CardDetailsTextContainer = styled.div`
   border-radius: 5px;
   font-family: "N27", sans-serif;
   font-size: calc(1rem + 0.2vw) !important;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 8px !important;
 `;
 
 export default function SingleLcMania() {
@@ -39,10 +39,14 @@ export default function SingleLcMania() {
   const singleArticleUrl = `https://ft6jmh4l.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22lcmania%22+%26%26+_id+%3D%3D+%22${id}%22%5D%7B%0A++%22title%22%3A+title%2C%0A++%22id%22%3A+_id%2C%0A++%22created%22%3A+_createdAt%2C%0A++%22mainImageUrl%22%3A+mainImage.asset-%3Eurl%2C%0A++%22paragraph1%22%3A+paragraph1%2C%0A++%22paragraph2%22%3A+paragraph2%2C%0A++%22paragraph3%22%3A+paragraph3%2C%0A++%22video1Url%22%3A+video1.asset-%3Eurl%2C%0A++%22image1Url%22%3A+image1.asset-%3Eurl%2C%0A++%22slideshow1%22%3A+slideshow1%5B%5D%7B+%22url%22%3A+asset-%3Eurl%2C+%22key%22%3A+_key+%7D%2C%0A++%22paragraph4%22%3A+paragraph4%2C%0A++%22paragraph5%22%3A+paragraph5%2C%0A++%22paragraph6%22%3A+paragraph6%2C%0A++%22video2Url%22%3A+video2.asset-%3Eurl%2C%0A++%22image2Url%22%3A+image2.asset-%3Eurl%2C%0A++%22slideshow2%22%3A+slideshow2%5B%5D%7B+%22url%22%3A+asset-%3Eurl+%7D%2C%0A++%22paragraph7%22%3A+paragraph7%2C%0A++%22paragraph8%22%3A+paragraph8%2C%0A++%22paragraph9%22%3A+paragraph9%0A%7D`;
   const { data, isFetchLoading, isFetchError } = useGetData(singleArticleUrl);
   const article = data[0];
-  console.log(article);
-  const [isMuted, setIsMuted] = useState(true);
-  const toggleMute = () => {
-    setIsMuted(!isMuted);
+
+  const [isMuted1, setIsMuted1] = useState(true);
+  const toggleMute1 = () => {
+    setIsMuted1(!isMuted1);
+  };
+  const [isMuted2, setIsMuted2] = useState(true);
+  const toggleMute2 = () => {
+    setIsMuted2(!isMuted2);
   };
 
   if (isFetchLoading) {
@@ -101,19 +105,19 @@ export default function SingleLcMania() {
               {article.video1Url && (
                 <div
                   className="video-container cursor-pointer p-0 mt-4"
-                  onClick={toggleMute}
+                  onClick={toggleMute1}
                 >
                   <video
                     autoPlay
                     playsInline
                     loop
-                    muted={isMuted}
+                    muted={isMuted1}
                     className="w-100"
                     src={article.video1Url}
                     alt={`Video from ${article.title}`}
                   />
                   <div className="d-flex justify-content-end position-relative video-speaker-icon">
-                    {isMuted ? (
+                    {isMuted1 ? (
                       <PiSpeakerSimpleSlashBold />
                     ) : (
                       <PiSpeakerSimpleHighBold />
@@ -156,19 +160,19 @@ export default function SingleLcMania() {
               {article.video2Url && (
                 <div
                   className="video-container cursor-pointer p-0 mt-4"
-                  onClick={toggleMute}
+                  onClick={toggleMute2}
                 >
                   <video
                     autoPlay
                     playsInline
                     loop
-                    muted={isMuted}
+                    muted={isMuted2}
                     className="w-100"
                     src={article.video1Url}
                     alt={`Video from ${article.title}`}
                   />
                   <div className="d-flex justify-content-end position-relative video-speaker-icon">
-                    {isMuted ? (
+                    {isMuted2 ? (
                       <PiSpeakerSimpleSlashBold />
                     ) : (
                       <PiSpeakerSimpleHighBold />
@@ -178,7 +182,7 @@ export default function SingleLcMania() {
               )}
               {article.slideshow2 && (
                 <Carousel className="p-0 mt-4 mb-5 article-carousel">
-                  {article.slideshow1.map((slide, index) => (
+                  {article.slideshow1.map((slide) => (
                     <Carousel.Item key={slide.key}>
                       <div className="d-flex justify-content-center">
                         <Col xs={12}>
