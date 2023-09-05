@@ -8,6 +8,7 @@ import NewsSlider from "../../components/newsSlider";
 import { Row, Col } from "react-bootstrap";
 import Speaker from "../../components/speaker";
 import StarryBackground from "../../components/stars";
+import { Helmet } from "react-helmet";
 
 function RotatingSphere({ position = [0, 0, 0] }) {
   const meshRef = useRef(null);
@@ -66,6 +67,9 @@ export default function Home() {
   return (
     <>
       <StarryBackground />
+      <Helmet>
+        <title>LC Troop | Home</title>
+      </Helmet>
       <div className="h-100 d-flex justify-content-center flex-column">
         <div className="w-100 d-flex justify-content-center">
           <div className="text-center mx-auto mt-3  main-heading-home">

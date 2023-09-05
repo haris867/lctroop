@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CardDetails } from "../creator";
 
 export const Heading = styled.h1`
   font-family: "N27", sans-serif;
@@ -56,4 +57,9 @@ export const AboutCardTitle = styled.h2`
   z-index: 1;
   text-align: center;
   font-family: "N27", sans-serif;
+`;
+
+export const AboutCardDetails = styled(CardDetails)`
+  width: 90%;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 8px !important;
 `;

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import useSendData from "../../hooks/api/sendData";
 import { ChaoticOrbit } from "@uiball/loaders";
 import StarryBackground from "../../components/stars";
+import { Helmet } from "react-helmet";
 
 const InputContainer = styled.div`
   font-family: "N27", sans-serif;
@@ -106,6 +107,9 @@ export default function Join() {
   return (
     <>
       <StarryBackground />
+      <Helmet>
+        <title>LC Troop | Join</title>
+      </Helmet>
       <div className="fade-in">
         <div className="d-flex justify-content-center">
           <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">

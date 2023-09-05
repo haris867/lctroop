@@ -1,26 +1,21 @@
 import * as St from "../../components/commonStyles/headings";
 import Speaker from "../../components/speaker";
-import { CardDetails, CardDetailsTextContainer } from "../creator";
+import { CardDetailsTextContainer } from "../creator";
 import * as S from "./index.styles";
 import { Container, Row, Col } from "react-bootstrap";
-import styled from "styled-components";
 import { SubHeading } from "../home/index.styles";
 import { Link } from "react-router-dom";
 import StarryBackground from "../../components/stars";
-
-const AboutCardDetails = styled(CardDetails)`
-  width: 90%;
-  box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 8px !important;
-`;
+import { Helmet } from "react-helmet";
 
 export default function About() {
   return (
     <>
       <StarryBackground />
       <Container className="fade-in">
-        {/* <Helmet>
-          <title>Bits & Bots | About</title>
-        </Helmet> */}
+        <Helmet>
+          <title>LC Troop | About</title>
+        </Helmet>
         <div className="d-flex justify-content-center">
           <St.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
             <span className="glow me-2">-</span>ABOUT US
@@ -33,7 +28,7 @@ export default function About() {
               <S.AboutCardTitle>OUR STORY</S.AboutCardTitle>
               <S.AboutImage src="/images/about1.jpg" />
             </div>
-            <AboutCardDetails className="mx-auto mt-2">
+            <S.AboutCardDetails className="mx-auto mt-2">
               <CardDetailsTextContainer className="pt-2 pb-2">
                 <S.AboutCardText>
                   LC TROOP ENTERTAINMENT AS is a record label / collective based
@@ -46,14 +41,14 @@ export default function About() {
                   recording, videography, photography and much more.
                 </S.AboutCardText>
               </CardDetailsTextContainer>
-            </AboutCardDetails>
+            </S.AboutCardDetails>
           </Col>
           <Col className="my-4" xs={12} sm={10} md={8} lg={6} xl={5}>
             <div className="d-flex justify-content-center align-items-center">
               <S.AboutCardTitle>OUR MISSION</S.AboutCardTitle>
               <S.AboutImage src="/images/about2.jpg" />
             </div>
-            <AboutCardDetails className="mx-auto mt-2">
+            <S.AboutCardDetails className="mx-auto mt-2">
               <CardDetailsTextContainer className="pt-2 pb-3">
                 <S.AboutCardText>
                   We empower our acts with values such as excellence, integrity
@@ -67,7 +62,7 @@ export default function About() {
                   society.
                 </S.AboutCardText>
               </CardDetailsTextContainer>
-            </AboutCardDetails>
+            </S.AboutCardDetails>
           </Col>
           <Col
             xs={12}

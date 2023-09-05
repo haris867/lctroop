@@ -14,6 +14,7 @@ import {
 import { SiApplemusic } from "react-icons/si";
 import useGetData from "../../hooks/api/getData";
 import StarryBackground from "../../components/stars";
+import { Helmet } from "react-helmet";
 
 const CardImage = styled.img`
   border: none;
@@ -69,6 +70,9 @@ export default function Creator() {
       <>
         <StarryBackground />
         <Container className="mt-4 fade-in">
+          <Helmet>
+            <title>LC Troop | {data.name}</title>
+          </Helmet>
           <Col
             xs={9}
             sm={9}

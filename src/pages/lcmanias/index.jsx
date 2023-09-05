@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useGetData from "../../hooks/api/getData";
 import { ChaoticOrbit } from "@uiball/loaders";
 import StarryBackground from "../../components/stars";
+import { Helmet } from "react-helmet";
 
 const NewsContainer = styled(Row)`
   gap: 10px;
@@ -65,6 +66,9 @@ export default function LcMania() {
   return (
     <>
       <StarryBackground />
+      <Helmet>
+        <title>LC Troop | LCMANIA</title>
+      </Helmet>
       <Container className="fade-in">
         <div className="d-flex justify-content-center">
           <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">

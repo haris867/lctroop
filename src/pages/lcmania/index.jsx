@@ -11,6 +11,7 @@ import {
 } from "react-icons/pi";
 import Carousel from "react-bootstrap/Carousel";
 import StarryBackground from "../../components/stars";
+import { Helmet } from "react-helmet";
 
 const CardImage = styled.img`
   border: none;
@@ -68,6 +69,9 @@ export default function SingleLcMania() {
     return (
       <>
         <StarryBackground />
+        <Helmet>
+          <title>LC Troop | LCMANIA {article.title}</title>
+        </Helmet>
         <Container className="mt-4 fade-in">
           <Col
             xs={9}

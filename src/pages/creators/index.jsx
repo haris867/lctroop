@@ -6,6 +6,7 @@ import useGetData from "../../hooks/api/getData";
 import { fetchUrl } from "../../utils/constants";
 import { ChaoticOrbit } from "@uiball/loaders";
 import StarryBackground from "../../components/stars";
+import { Helmet } from "react-helmet";
 
 const CreatorsSection = styled(Row)`
   gap: 10px;
@@ -83,6 +84,9 @@ export default function Creators() {
 
           return (
             <CreatorsSection className="py-3" key={category._id}>
+              <Helmet>
+                <title>LC Troop | Creators</title>
+              </Helmet>
               <div className="d-flex justify-content-center">
                 <SectionHeading className="d-flex justify-content-center align-items-center mb-4 fs-3">
                   {category.category.toUpperCase()}

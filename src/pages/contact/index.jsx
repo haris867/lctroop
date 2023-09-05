@@ -4,6 +4,7 @@ import * as S from "../../components/commonStyles/headings";
 import styled from "styled-components";
 import Envelope from "../../components/envelope";
 import StarryBackground from "../../components/stars";
+import { Helmet } from "react-helmet";
 
 const InputContainer = styled.div`
   font-family: "N27", sans-serif;
@@ -80,6 +81,9 @@ export default function Contact() {
     <>
       <StarryBackground />
       <div className="fade-in">
+        <Helmet>
+          <title>LC Troop | Contact</title>
+        </Helmet>
         <div className="d-flex justify-content-center mb-3">
           <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
             <span className="glow me-2">-</span>CONTACT US
