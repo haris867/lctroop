@@ -52,15 +52,31 @@ export default function NewsSlider() {
           <Carousel.Item key={article.id}>
             <div className="d-flex justify-content-center">
               <Col xs={8} md={6} lg={6} xl={9} xxl={7}>
-                <Link to={`/article/${article.id}`}>
-                  <img
-                    src={article.mainImageUrl}
-                    alt={`Slide ${article.title} #${article.id}`}
-                  />
-                  <Carousel.Caption>
-                    <h3 className="m-0">{article.title}</h3>
-                  </Carousel.Caption>
-                </Link>
+                {article.title === "Our studio" ? (
+                  <a
+                    href="http://www.lcmusicstudios.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={article.mainImageUrl}
+                      alt={`Slide ${article.title} #${article.id}`}
+                    />
+                    <Carousel.Caption>
+                      <h3 className="m-0">{article.title}</h3>
+                    </Carousel.Caption>
+                  </a>
+                ) : (
+                  <Link to={`/article/${article.id}`}>
+                    <img
+                      src={article.mainImageUrl}
+                      alt={`Slide ${article.title} #${article.id}`}
+                    />
+                    <Carousel.Caption>
+                      <h3 className="m-0">{article.title}</h3>
+                    </Carousel.Caption>
+                  </Link>
+                )}
               </Col>
             </div>
           </Carousel.Item>

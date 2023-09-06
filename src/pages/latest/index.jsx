@@ -87,15 +87,33 @@ export default function Latest() {
               className="d-flex justify-content-center flex-column mb-3 mx-auto"
               key={article.id}
             >
-              <CardLink to={`/article/${article.id}`}>
-                <div>
-                  <CardImage src={article.mainImageUrl} alt="" />
-                  <CardDetails className="w-100 text-center pt-3 pb-1">
-                    <h2 className="pt-4 fs-3">{article.title}</h2>
-                    <h3 className="fs-6 mx-2">{formatDate(article.created)}</h3>
-                  </CardDetails>
-                </div>
-              </CardLink>
+              {article.title === "Our studio" ? (
+                <a
+                  href="http://www.lcmusicstudios.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none"
+                >
+                  <div>
+                    <CardImage src={article.mainImageUrl} alt="" />
+                    <CardDetails className="w-100 text-center pt-3 pb-1">
+                      <h2 className="pt-4 fs-3 pb-2">{article.title}</h2>
+                    </CardDetails>
+                  </div>
+                </a>
+              ) : (
+                <CardLink to={`/article/${article.id}`}>
+                  <div>
+                    <CardImage src={article.mainImageUrl} alt="" />
+                    <CardDetails className="w-100 text-center pt-3 pb-1">
+                      <h2 className="pt-4 fs-3">{article.title}</h2>
+                      <h3 className="fs-6 mx-2">
+                        {formatDate(article.created)}
+                      </h3>
+                    </CardDetails>
+                  </div>
+                </CardLink>
+              )}
             </Card>
           ))}
         </NewsContainer>
