@@ -43,7 +43,6 @@ export default function Article() {
   const singleArticleUrl = `https://ft6jmh4l.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22latest%22+%26%26+_id+%3D%3D+%22${id}%22%5D%7B%0A++%22title%22%3A+title%2C%0A++%22id%22%3A+_id%2C%0A++%22subheading%22%3A+subheading%2C%0A++%22linkTitle%22%3A+linkTitle%2C%0A++%22linkUrl%22%3A+linkUrl%2C%0A++%22created%22%3A+_createdAt%2C%0A++%22mainImageUrl%22%3A+mainImage.asset-%3Eurl%2C%0A++%22paragraph1%22%3A+paragraph1%2C%0A++%22paragraph2%22%3A+paragraph2%2C%0A++%22paragraph3%22%3A+paragraph3%2C%0A++%22image1Url%22%3A+image1.asset-%3Eurl%2C%0A++%22paragraph4%22%3A+paragraph4%2C%0A++%22paragraph5%22%3A+paragraph5%2C%0A++%22paragraph6%22%3A+paragraph6%2C%0A++%22image2Url%22%3A+image2.asset-%3Eurl%2C%0A++%22paragraph7%22%3A+paragraph7%2C%0A++%22paragraph8%22%3A+paragraph8%2C%0A++%22paragraph9%22%3A+paragraph9%0A%7D`;
   const { data, isFetchLoading, isFetchError } = useGetData(singleArticleUrl);
   const article = data[0];
-  console.log(article);
   if (isFetchLoading) {
     return (
       <div className="d-flex justify-content-center align-items-center w-100 h-100">

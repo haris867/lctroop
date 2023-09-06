@@ -54,7 +54,6 @@ export default function LcMania() {
   const LcManiaFetchUrl =
     "https://ft6jmh4l.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22lcmania%22%5D%7B%0A++%22title%22%3A+title%2C%0A++%22mainImageUrl%22%3A+mainImage.asset-%3Eurl%2C%0A++++%22id%22%3A+_id%2C%0A%7D%0A++%0A%0A";
   const { data, isFetchLoading, isFetchError } = useGetData(LcManiaFetchUrl);
-  console.log(data);
   if (isFetchLoading) {
     return (
       <div className="d-flex justify-content-center align-items-center w-100 h-100">

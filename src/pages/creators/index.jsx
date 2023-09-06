@@ -62,9 +62,6 @@ export default function Creators() {
   }
   if (isFetchError || !data) return <div>Error loading data.</div>;
   const { categories, creators } = data;
-  console.log(data);
-  console.log(creators);
-  console.log(categories);
   return (
     <>
       <StarryBackground />

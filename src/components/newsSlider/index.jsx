@@ -26,8 +26,6 @@ export default function NewsSlider() {
     );
   }
   if (isFetchError || !data) return <div>Error loading data.</div>;
-
-  console.log(data);
   const sortedData = data
     .sort((a, b) => new Date(b.created) - new Date(a.created))
     .slice(0, 3);

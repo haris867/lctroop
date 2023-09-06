@@ -46,7 +46,6 @@ const CardDetails = styled.div`
 
 export default function Latest() {
   const { data, isFetchLoading, isFetchError } = useGetData(fetchUrlNews);
-  console.log(data);
   if (isFetchLoading) {
     return (
       <div className="d-flex justify-content-center align-items-center w-100 h-100">

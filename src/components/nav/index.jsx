@@ -26,7 +26,6 @@ export default function Nav() {
   const [isClosed, setIsClosed] = useState(false);
 
   function handleHamburger() {
-    console.log("hamburger");
     const hamburgerMenu = document.querySelector(".hamburger-menu");
     if (hamburgerMenu) {
       hamburgerMenu.classList.toggle("zero-vh");
