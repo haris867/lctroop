@@ -46,7 +46,7 @@ const CardDetails = styled.div`
 
 export default function Latest() {
   const { data, isFetchLoading, isFetchError } = useGetData(fetchUrlNews);
-
+  console.log(data);
   if (isFetchLoading) {
     return (
       <div className="d-flex justify-content-center align-items-center w-100 h-100">
@@ -55,6 +55,10 @@ export default function Latest() {
     );
   }
   if (isFetchError || !data) return <div>Error loading data.</div>;
+
+  const sortedData = [...data].sort(
+    (a, b) => new Date(b.updated) - new Date(a.updated)
+  );
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -77,7 +81,7 @@ export default function Latest() {
           </S.Heading>
         </div>
         <NewsContainer className="py-3">
-          {data.map((article) => (
+          {sortedData.map((article) => (
             <Card
               xs={9}
               sm={8}
