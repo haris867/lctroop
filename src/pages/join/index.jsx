@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import useSendData from "../../hooks/api/sendData";
 import { ChaoticOrbit } from "@uiball/loaders";
-import StarryBackground from "../../components/stars";
 import { Helmet } from "react-helmet";
 
 const InputContainer = styled.div`
@@ -106,7 +105,6 @@ export default function Join() {
   }
   return (
     <>
-      <StarryBackground />
       <Helmet>
         <title>LC Troop | Join</title>
       </Helmet>

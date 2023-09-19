@@ -1,5 +1,6 @@
 export { default as Home } from "./home";
 export { default as LcMania } from "./lcmanias";
+export { default as Merch } from "./merch";
 export { default as SingleLcMania } from "./lcmania";
 export { default as Creators } from "./creators";
 export { default as Creator } from "./creator";

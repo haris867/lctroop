@@ -82,6 +82,19 @@ export default function Nav() {
                   setIsClosed(!isClosed);
                   handleHamburger();
                 }}
+                to="/merch"
+              >
+                <span className="glow me-2">-</span>
+                MERCH
+                <span className="glow ms-2">-</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                onClick={() => {
+                  setIsClosed(!isClosed);
+                  handleHamburger();
+                }}
                 to="/creators"
               >
                 <span className="glow me-2">-</span>

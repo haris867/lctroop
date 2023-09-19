@@ -9,3 +9,10 @@ export const SubHeading = styled.h2`
   display: inline;
   border-bottom: 3px solid #ffd700;
 `;
+
+export const SectionHeading = styled.h2`
+  color: #fff;
+  font-family: "Lao MN", sans-serif;
+  border-bottom: 3px solid #ffd700;
+  display: inline-block !important;
+`;

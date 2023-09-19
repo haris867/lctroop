@@ -46,8 +46,11 @@ export default function NewsSlider() {
         </NewsLink>
       </Col>
       <Carousel>
-        {sortedData.map((article) => (
-          <Carousel.Item key={article.id}>
+        {sortedData.map((article, index) => (
+          <Carousel.Item
+            key={article.id}
+            interval={index === 0 ? 8000 : undefined}
+          >
             <div className="d-flex justify-content-center">
               <Col xs={8} md={6} lg={6} xl={9} xxl={7}>
                 {article.title === "Our studio" ? (

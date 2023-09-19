@@ -1,25 +1,35 @@
 import * as St from "../../components/commonStyles/headings";
-import Speaker from "../../components/speaker";
-import { CardDetailsTextContainer } from "../creator";
-import * as S from "./index.styles";
-import { Container, Row, Col } from "react-bootstrap";
-import { SubHeading } from "../home/index.styles";
-import { Link } from "react-router-dom";
+// import Speaker from "../../components/speaker";
+// import { CardDetailsTextContainer } from "../creator";
+// import * as S from "./index.styles";
+// import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+// import { SubHeading } from "../home/index.styles";
+// import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Shirt from "../../components/shirt";
 
-export default function About() {
+export default function Merch() {
   return (
     <Container className="fade-in">
       <Helmet>
-        <title>LC Troop | About</title>
+        <title>LC Troop | Merch</title>
       </Helmet>
       <div className="d-flex justify-content-center">
         <St.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
-          <span className="glow me-2">-</span>ABOUT US
+          <span className="glow me-2">-</span>MERCH
           <span className="glow ms-2">-</span>
         </St.Heading>
       </div>
-      <Row className="justify-content-center">
+      <div className="d-flex justify-content-center pt-3">
+        <St.SectionHeading className="d-flex justify-content-center align-items-center pt-3 fs-4">
+          COMING SOON
+        </St.SectionHeading>
+      </div>
+      <Row className="shirt-container justify-content-center">
+        <Shirt />
+      </Row>
+      {/* <Row className="justify-content-center">
         <Col className="my-4" xs={12} sm={10} md={8} lg={6} xl={5}>
           <div className="d-flex justify-content-center align-items-center">
             <S.AboutCardTitle>OUR STORY</S.AboutCardTitle>
@@ -88,7 +98,7 @@ export default function About() {
             </Link>
           </div>
         </Col>
-      </Row>
+      </Row> */}
     </Container>
   );
 }

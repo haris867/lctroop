@@ -13,7 +13,6 @@ import {
 } from "react-icons/fa";
 import { SiApplemusic } from "react-icons/si";
 import useGetData from "../../hooks/api/getData";
-import StarryBackground from "../../components/stars";
 import { Helmet } from "react-helmet";
 
 const CardImage = styled.img`
@@ -36,11 +35,6 @@ export const CardDetailsTextContainer = styled.div`
   font-size: calc(1rem + 0.2vw) !important;
 `;
 
-const SectionHeading = styled.h2`
-  color: #fff;
-  font-family: "Lao MN", sans-serif;
-  display: inline-block !important;
-`;
 const IconsContainer = styled(Row)``;
 const IconLink = styled.a`
   color: #fff;
@@ -67,115 +61,103 @@ export default function Creator() {
     );
   if (data && data.name) {
     return (
-      <>
-        <StarryBackground />
-        <Container className="mt-4 fade-in">
-          <Helmet>
-            <title>LC Troop | {data.name}</title>
-          </Helmet>
-          <Col
-            xs={9}
-            sm={9}
-            md={7}
-            lg={6}
-            xl={7}
-            className="d-flex justify-content-center flex-column mb-3 mx-auto"
-          >
-            <Row className="justify-content-center">
-              <Col xs={12} xl={8} xxl={6}>
-                {data.image && (
-                  <CardImage
-                    src={data.imageUrl}
-                    alt={`Image of ${data.name}`}
-                  />
-                )}
-                <div className="d-flex justify-content-center">
-                  <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
-                    <span className="glow me-2">-</span>
-                    {data.name.toUpperCase()}
-                    <span className="glow ms-2">-</span>
-                  </S.Heading>
-                </div>
-                <div className="d-flex justify-content-center">
-                  <SectionHeading className="d-flex justify-content-center align-items-center mb-4 fs-4">
-                    {data.occupation.toUpperCase()}
-                  </SectionHeading>
-                </div>
-              </Col>
-              <Col xs={12} xl={8} xxl={6}>
-                {data.bio1 && (
-                  <CardDetails>
-                    <CardDetailsTextContainer className="p-3">
-                      <p>{data.bio1}</p>
-                      <p>{data.bio2}</p>
-                      <p>{data.bio3}</p>
-                    </CardDetailsTextContainer>
-                  </CardDetails>
-                )}
-              </Col>
-            </Row>
-            {data.social && Object.keys(data.social).length > 0 && (
-              <IconsContainer className="mt-5">
-                {data.social.instagram && (
-                  <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                    <IconLink href={`${data.social.instagram}`} target="_blank">
-                      <FaInstagram className="w-100 h-100 px-3 py-3 scale-up" />
-                    </IconLink>
-                  </Col>
-                )}
-                {data.social.facebook && (
-                  <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                    <IconLink href={`${data.social.facebook}`} target="_blank">
-                      <FaFacebook className="w-100 h-100 px-3 py-3 scale-up" />
-                    </IconLink>
-                  </Col>
-                )}
-                {data.social.tiktok && (
-                  <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                    <IconLink href={`${data.social.tiktok}`} target="_blank">
-                      <FaTiktok className="w-100 h-100 px-3 py-3 scale-up" />
-                    </IconLink>
-                  </Col>
-                )}
-                {data.social.youtube && (
-                  <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                    <IconLink href={`${data.social.youtube}`} target="_blank">
-                      <FaYoutube className="w-100 h-100 px-3 py-3 scale-up" />
-                    </IconLink>
-                  </Col>
-                )}
-                {data.social.spotify && (
-                  <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                    <IconLink href={`${data.social.spotify}`} target="_blank">
-                      <FaSpotify className="w-100 h-100 px-3 py-3 scale-up" />
-                    </IconLink>
-                  </Col>
-                )}
-                {data.social.appleMusic && (
-                  <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                    <IconLink
-                      href={`${data.social.appleMusic}`}
-                      target="_blank"
-                    >
-                      <SiApplemusic className="w-100 h-100 px-3 py-3 scale-up" />
-                    </IconLink>
-                  </Col>
-                )}
-                {data.social.soundcloud && (
-                  <Col xs={4} sm={3} md={3} lg={3} xl={2}>
-                    <IconLink
-                      href={`${data.social.soundcloud}`}
-                      target="_blank"
-                    >
-                      <FaSoundcloud className="w-100 h-100 px-3 py-3 scale-up" />
-                    </IconLink>
-                  </Col>
-                )}
-              </IconsContainer>
-            )}
-          </Col>
-        </Container>
-      </>
+      <Container className="mt-4 fade-in">
+        <Helmet>
+          <title>LC Troop | {data.name}</title>
+        </Helmet>
+        <Col
+          xs={9}
+          sm={9}
+          md={7}
+          lg={6}
+          xl={7}
+          className="d-flex justify-content-center flex-column mb-3 mx-auto"
+        >
+          <Row className="justify-content-center">
+            <Col xs={12} xl={8} xxl={6}>
+              {data.image && (
+                <CardImage src={data.imageUrl} alt={`Image of ${data.name}`} />
+              )}
+              <div className="d-flex justify-content-center">
+                <S.Heading className="d-flex justify-content-center align-items-center pt-3 fs-2">
+                  <span className="glow me-2">-</span>
+                  {data.name.toUpperCase()}
+                  <span className="glow ms-2">-</span>
+                </S.Heading>
+              </div>
+              <div className="d-flex justify-content-center">
+                <S.SectionHeading className="d-flex justify-content-center align-items-center mb-4 fs-4">
+                  {data.occupation.toUpperCase()}
+                </S.SectionHeading>
+              </div>
+            </Col>
+            <Col xs={12} xl={8} xxl={6}>
+              {data.bio1 && (
+                <CardDetails>
+                  <CardDetailsTextContainer className="p-3">
+                    <p>{data.bio1}</p>
+                    <p>{data.bio2}</p>
+                    <p>{data.bio3}</p>
+                  </CardDetailsTextContainer>
+                </CardDetails>
+              )}
+            </Col>
+          </Row>
+          {data.social && Object.keys(data.social).length > 0 && (
+            <IconsContainer className="mt-5">
+              {data.social.instagram && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.instagram}`} target="_blank">
+                    <FaInstagram className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.facebook && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.facebook}`} target="_blank">
+                    <FaFacebook className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.tiktok && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.tiktok}`} target="_blank">
+                    <FaTiktok className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.youtube && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.youtube}`} target="_blank">
+                    <FaYoutube className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.spotify && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.spotify}`} target="_blank">
+                    <FaSpotify className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.appleMusic && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.appleMusic}`} target="_blank">
+                    <SiApplemusic className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+              {data.social.soundcloud && (
+                <Col xs={4} sm={3} md={3} lg={3} xl={2}>
+                  <IconLink href={`${data.social.soundcloud}`} target="_blank">
+                    <FaSoundcloud className="w-100 h-100 px-3 py-3 scale-up" />
+                  </IconLink>
+                </Col>
+              )}
+            </IconsContainer>
+          )}
+        </Col>
+      </Container>
     );
   }
 }

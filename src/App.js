@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import {
   Home,
   LcMania,
+  Merch,
   SingleLcMania,
   About,
   Latest,
@@ -20,6 +21,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/lcmanias" element={<LcMania />} />
+        <Route path="/merch" element={<Merch />} />
         <Route path="/lcmania/:id" element={<SingleLcMania />} />
         <Route path="/creators" element={<Creators />} />
         <Route path="/creator/:id" element={<Creator />} />

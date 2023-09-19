@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { ChaoticOrbit } from "@uiball/loaders";
 import useGetData from "../../hooks/api/getData";
-import StarryBackground from "../../components/stars";
 import { Helmet } from "react-helmet";
 
 const ExternalLink = styled.a`
@@ -61,7 +60,6 @@ export default function Article() {
   if (article) {
     return (
       <>
-        <StarryBackground />
         <Helmet>
           <title>LC Troop | {article.title}</title>
         </Helmet>
