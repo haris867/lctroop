@@ -26,7 +26,7 @@ export default function About() {
             <S.AboutImage src="/images/about1.jpg" />
           </div>
           <S.AboutCardDetails className="mx-auto mt-2">
-            <CardDetailsTextContainer className="pt-2 pb-2">
+            <CardDetailsTextContainer className="p-3">
               <S.AboutCardText>
                 LC TROOP ENTERTAINMENT AS is a record label / collective based
                 in Oslo, Norway, founded by artist Young Cisto.
@@ -46,7 +46,7 @@ export default function About() {
             <S.AboutImage src="/images/about2.jpg" />
           </div>
           <S.AboutCardDetails className="mx-auto mt-2">
-            <CardDetailsTextContainer className="pt-2 pb-3">
+            <CardDetailsTextContainer className="p-3">
               <S.AboutCardText>
                 We empower our acts with values such as excellence, integrity
                 and abundance. These principals are central in our company and

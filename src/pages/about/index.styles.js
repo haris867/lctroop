@@ -46,7 +46,6 @@ export const AboutImage = styled.img`
 `;
 
 export const AboutCardText = styled.p`
-  width: 90%;
   font-family: "N27", sans-serif;
   margin: 0 auto;
 `;

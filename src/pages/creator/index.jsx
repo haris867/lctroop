@@ -95,9 +95,11 @@ export default function Creator() {
               {data.bio1 && (
                 <CardDetails>
                   <CardDetailsTextContainer className="p-3">
-                    <p>{data.bio1}</p>
-                    <p>{data.bio2}</p>
-                    <p>{data.bio3}</p>
+                    <p className={!data.bio2 ? "m-0" : ""}>{data.bio1}</p>
+                    {data.bio2 && (
+                      <p className={!data.bio3 ? "m-0" : ""}>{data.bio2}</p>
+                    )}
+                    {data.bio3 && <p className="m-0">{data.bio3}</p>}
                   </CardDetailsTextContainer>
                 </CardDetails>
               )}

@@ -106,9 +106,15 @@ export default function Article() {
               {article.paragraph1 && (
                 <CardDetails className="px-0 mt-3 mb-5">
                   <CardDetailsTextContainer className="p-3">
-                    <p>{article.paragraph1}</p>
-                    <p>{article.paragraph2}</p>
-                    <p>{article.paragraph3}</p>
+                    <p className={!article.paragraph2 ? "m-0" : ""}>
+                      {article.paragraph1}
+                    </p>
+                    {article.paragraph2 && (
+                      <p className={!article.paragraph3 ? "m-0" : ""}>
+                        {article.paragraph2}
+                      </p>
+                    )}
+                    {article.paragraph3 && <p>{article.paragraph3}</p>}
                   </CardDetailsTextContainer>
                 </CardDetails>
               )}
@@ -122,9 +128,15 @@ export default function Article() {
               {article.paragraph4 && (
                 <CardDetails className="px-0 mt-3 mb-5">
                   <CardDetailsTextContainer className="p-3">
-                    <p>{article.paragraph4}</p>
-                    <p>{article.paragraph5}</p>
-                    <p>{article.paragraph6}</p>
+                    <p className={!article.paragraph5 ? "m-0" : ""}>
+                      {article.paragraph4}
+                    </p>
+                    {article.paragraph5 && (
+                      <p className={!article.paragraph6 ? "m-0" : ""}>
+                        {article.paragraph5}
+                      </p>
+                    )}
+                    {article.paragraph6 && <p>{article.paragraph6}</p>}
                   </CardDetailsTextContainer>
                 </CardDetails>
               )}
@@ -138,9 +150,15 @@ export default function Article() {
               {article.paragraph7 && (
                 <CardDetails className="px-0 mt-3 mb-5">
                   <CardDetailsTextContainer className="p-3">
-                    <p>{article.paragraph7}</p>
-                    <p>{article.paragraph8}</p>
-                    <p>{article.paragraph9}</p>
+                    <p className={!article.paragraph8 ? "m-0" : ""}>
+                      {article.paragraph7}
+                    </p>
+                    {article.paragraph8 && (
+                      <p className={!article.paragraph9 ? "m-0" : ""}>
+                        {article.paragraph8}
+                      </p>
+                    )}
+                    {article.paragraph9 && <p>{article.paragraph9}</p>}
                   </CardDetailsTextContainer>
                 </CardDetails>
               )}
